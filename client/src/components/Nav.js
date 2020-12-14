@@ -11,7 +11,8 @@ const Nav = () => {
             credentials: 'include'
         });
         if(response.ok) {
-            setCurrentUserId(null)
+            setCurrentUserId(null);
+            localStorage.clear();
         }
     }
 

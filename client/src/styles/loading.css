@@ -1,0 +1,117 @@
+.wrap {
+	perspective: 800px;
+	perspective-origin: 50% 50px;
+	width: 100%;
+	z-index: 2000;
+	left: 0;
+	height: 100%;
+	top: 0;
+	padding-top: 20%;
+}
+
+.wrap .cube-board {
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.425);
+
+}
+.cube {
+	position: relative;
+	margin: auto;
+	transform-style: preserve-3d;
+}
+
+ .cube-board .cube {
+	height: 200px;
+	width: 200px;
+	font-size: 40px;
+	color: gainsboro;
+}
+
+ .cube-photo .cube {
+	width: 70px;
+	height: 70px;
+	font-size: 20px;
+	color: rgb(255, 255, 255);
+}
+
+.cube div {
+	opacity: 70%;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: inherit;
+	color: inherit;
+}
+
+.cube-photo .face {
+	background-color: rgba(255, 255, 255, 0.726);
+	color:rgb(63, 63, 63);
+	border: 1px solid gray
+}
+.cube-photo .back {
+	transform: translateZ(-35px) rotateY(180deg);
+}
+.cube-photo .right {
+	transform: rotateY(-270deg) translateX(35px);
+	transform-origin: top right;
+}
+.cube-photo .left {
+	transform: rotateY(270deg) translateX(-35px);
+	transform-origin: center left;
+}
+.cube-photo .top {
+	transform: rotateX(-90deg) translateY(-35px);
+	transform-origin: top center;
+	color: rgba(220, 220, 220, 0);
+}
+.cube-photo .bottom {
+	transform: rotateX(90deg) translateY(35px);
+	transform-origin: bottom center;
+	color: rgba(220, 220, 220, 0);
+}
+.cube-photo .front {
+	transform: translateZ(35px);
+}
+
+.cube-board .back {
+	background-color: aliceblue;
+	transform: translateZ(-100px) rotateY(180deg);
+}
+.cube-board .right  {
+	background-color: beige;
+	transform: rotateY(-270deg) translateX(100px);
+	transform-origin: top right;
+}
+.cube-board .left  {
+	background-color: pink;
+	transform: rotateY(270deg) translateX(-100px);
+	transform-origin: center left;
+}
+.cube-board .top  {
+	background-color: plum;
+	transform: rotateX(-90deg) translateY(-100px);
+	transform-origin: top center;
+	color: rgba(220, 220, 220, 0);
+}
+.cube-board .bottom  {
+	background-color: sandybrown;
+	transform: rotateX(90deg) translateY(100px);
+	transform-origin: bottom center;
+	color: rgba(220, 220, 220, 0);
+}
+.cube-board .front  {
+	background-color: skyblue;
+	transform: translateZ(100px);
+}
+
+@keyframes spin {
+	from { transform: rotateY(0); }
+	to { transform: rotateY(360deg); }
+}
+
+.cube {
+	animation: spin 5s infinite linear;
+}

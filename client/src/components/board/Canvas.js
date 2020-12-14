@@ -1,7 +1,6 @@
-import React, { useRef, useCallback, useState, useContext, useEffect } from "react";
-import { Layer, Stage, Text } from "react-konva";
-import { NavLink, useHistory } from 'react-router-dom';
-import useImage from 'use-image';
+import React, { useRef, useCallback, useState, useContext} from "react";
+import { Layer, Stage } from "react-konva";
+import {  useHistory } from 'react-router-dom';
 import {AuthContext} from '../../context'
 
 import {
@@ -19,7 +18,7 @@ import { Shape } from './items/Shape';
 
 const handleDragOver = (event) => event.preventDefault();
 
-const Canvas = ({sketchbookId, sketchbookTitle, boardTitle}) => {
+const Canvas = ({sketchbookId, sketchbookTitle, boardTitle, setSaving}) => {
   const { fetchWithCSRF, currentUserId } = useContext(AuthContext);
   const shapes = useShapes((state) => Object.entries(state.shapes));
   const history = useHistory()
@@ -108,6 +107,7 @@ const Canvas = ({sketchbookId, sketchbookTitle, boardTitle}) => {
 }
 
 	const handleSave = async(e) => {
+    setSaving(true)
     clearSelection();
     const dataURL = stageRef.current.toDataURL();
     const blob = dataURItoBlob(dataURL)
@@ -120,33 +120,11 @@ const Canvas = ({sketchbookId, sketchbookTitle, boardTitle}) => {
 			method: 'POST',
 			body: formData,
     });
-    alert('saved')
     reset();
+    localStorage.clear('__selected_photos__')
     history.push(`/sketchbook/${sketchbookId}/${sketchbookTitle}`)
+    setSaving(false)
 	};
-
-	// useEffect(() => {
-	// 	const formData = new FormData();
-  //   formData.append("file", board);
-  //   formData.append("title", title)
-	// 	if(board){
-	// 		postBoard(formData);
-	// 	}
-	// }, [board])
-
-
-	// const postBoard = async (formData) => {
-	// 	let response = await fetchWithCSRF(`/api-photos/sketchbook/${sketchbookId}`, {
-	// 		method: 'POST',
-	// 		body: formData,
-	// 	});
-	// 	if (response.ok) {
-	// 		const data = await response.json()
-	// 		setTimeout(() => {
-
-	// 		}, 1000);
-	// 	}
-	// };
 
 
   return (

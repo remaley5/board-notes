@@ -1,5 +1,6 @@
 import Nav from './Nav';
-import React, { useState, useEffect, useContext } from 'react';
+import Loading from './Loading'
+import React, { useState} from 'react';
 import Canvas from './board/Canvas'
 import Palette from './board/Palette';
 import PropertiesPanel from './board/tools/PropertiesPanel'
@@ -8,6 +9,7 @@ const categories = ['images', 'text', 'shapes', 'pallets']
 function Moodboard(props) {
     const [type, setType] = useState('images')
     const [newText, setNewText] = useState(false)
+    const [saving, setSaving] = useState(false)
 
     const sketchbookId = parseInt(props.match.params.id, 10);
     const sketchbookTitle = props.match.params.sketchbookTitle
@@ -21,8 +23,13 @@ function Moodboard(props) {
     return (
         <div className='page'>
             <div className='nav'>
-                <Nav />
+                <Nav/>
             </div>
+            {
+                saving ?
+                <Loading classes={'cube-board'} />
+                : null
+            }
             <div className='page-header'>
                 <div className='sketchbook-header'>{boardTitle}</div>
             </div>
@@ -39,7 +46,7 @@ function Moodboard(props) {
                 </div>
                 <div className='moodboard-body'>
                     {/* <button id='save' onClick={handleSave}>Save as PNG</button> */}
-                    <Canvas sketchbookId={sketchbookId} sketchbookTitle={sketchbookTitle} boardTitle={boardTitle} />
+                    <Canvas sketchbookId={sketchbookId} sketchbookTitle={sketchbookTitle} boardTitle={boardTitle} setSaving={setSaving} />
                     <PropertiesPanel newText={newText} setNewText={setNewText} />
                 </div>
             </div>
