@@ -85,7 +85,7 @@ const Sketchbook = (props) => {
                         </div> : null}
                 </div>}
             <dialog className='page-mask' onClose={handleClose} open={open}>
-                <div className='dialog-content'>
+                <div className='sketchbook dialog-content'>
                     <input className='dialog-header' onChange={handleChange} value={title} />
                     <div className='dialog-btns'>
                         <button className='close-dialog-btn dialog-btn' onClick={handleClose}>cancel</button>

@@ -64,6 +64,9 @@
     padding: 50px;
 }
 
+.sketchbook.dialog-content {
+  height: fit-content;
+}
 .home-link {
     font-size: 50px;
     font-weight: bold;
