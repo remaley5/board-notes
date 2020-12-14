@@ -1,6 +1,7 @@
 import Nav from './Nav';
 import Loading from './Loading'
 import React, { useState} from 'react';
+import {NavLink} from 'react-router-dom'
 import Canvas from './board/Canvas'
 import Palette from './board/Palette';
 import PropertiesPanel from './board/tools/PropertiesPanel'
@@ -24,6 +25,7 @@ function Moodboard(props) {
         <div className='page'>
             <div className='nav'>
                 <Nav/>
+                <NavLink to={`/sketchbook/${sketchbookId}/${sketchbookTitle}`}><button className='nav-link book-link'>{sketchbookTitle}</button></NavLink>
             </div>
             {
                 saving ?

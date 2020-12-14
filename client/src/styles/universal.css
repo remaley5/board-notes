@@ -72,6 +72,12 @@
     font-weight: bold;
 }
 
+.book-link {
+  font-size: 20px;
+  font-weight: bold;
+  color: gray;
+}
+
 .logout-link {
     font-size: 25px;
 }
