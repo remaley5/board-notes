@@ -48,5 +48,5 @@ def uploadBoard(sketchBookId):
 @photo_routes.route("/<int:userId>")
 def get_photos(userId):
     photos = Photo.query.filter(Photo.user_id == userId)
-    photo_urls = [p.photo_url for p in photos]
-    return jsonify(photo_urls)
+    photos = [p.to_dict() for p in photos]
+    return jsonify(photos)

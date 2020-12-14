@@ -5,7 +5,7 @@ import ReactQuill, {getContents} from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Konva from 'react-konva'
 import {TextContext} from '../../../context'
-import {createText, createPhoto} from '../items/state'
+import {createText, createPhoto} from '../../../state'
 import html2canvas from 'html2canvas'
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 

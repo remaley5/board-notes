@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useCallback } from "react";
 import { Rect as KonvaRectangle, Transformer } from "react-konva";
 
-import { LIMITS } from "./constants";
-import { selectShape, transformRectangleShape, moveShape } from "./state";
+import { LIMITS } from "../../../constants";
+import { selectShape, transformRectangleShape, moveShape } from "../../../state";
 
 const boundBoxCallbackForRectangle = (oldBox, newBox) => {
   // limit resize

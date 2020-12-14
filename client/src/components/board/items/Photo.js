@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useCallback, useContext } from "react";
 import { Image as KonvaImage, Transformer } from "react-konva";
-import { LIMITS } from "./constants";
-import { selectShape, transformPhotoShape, moveShape } from "./state";
+import { LIMITS } from "../../../constants";
+import { selectShape, transformPhotoShape, moveShape } from "../../../state";
 
 const boundBoxCallbackForPhoto = (oldBox, newBox) => {
   //console.log('Photo.js--boundBoxCallbackForPhoto', 'oldBox: ', oldBox, 'newBox', newBox )

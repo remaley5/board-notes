@@ -2,7 +2,7 @@ import { createStore } from "@halka/state";
 import produce, { current } from "immer";
 import clamp from "clamp";
 import { nanoid } from "nanoid";
-import {AuthContext} from '.././../../context'
+import {AuthContext} from './context'
 
 import { SHAPE_TYPES, DEFAULTS, LIMITS } from "./constants";
 
@@ -24,11 +24,13 @@ export const useShapes = createStore(() => {
 const setState = (fn) => useShapes.set(produce(fn));
 
 export const setPhotos = (photos) => {
+  console.log('setting photos ', photos)
   localStorage.setItem(BOARD_PHOTOS, JSON.stringify(photos))
 }
 
 export const getPhotos = () => {
   const photos = JSON.parse(localStorage.getItem(BOARD_PHOTOS))
+  console.log('getting photos ', photos)
   return photos;
 }
 

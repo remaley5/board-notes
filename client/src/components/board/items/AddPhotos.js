@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import {getPhotos, setSelectedPhotos} from '../items/state';
+import {getPhotos, setSelectedPhotos} from '../../../state';
 import Upload from './../tools/Upload'
 import SelectedPhoto from './SelectedPhoto'
 
@@ -19,6 +19,7 @@ const AddPhotos = ({ boardPhotos, setBoardPhotos }) => {
         e.preventDefault();
         const photos = getPhotos();
         setSelected(boardPhotos);
+        console.log('setting all photos ', photos)
         setAllPhotos(photos);
         setOpenDialog(true);
     }
@@ -38,7 +39,7 @@ const AddPhotos = ({ boardPhotos, setBoardPhotos }) => {
                 <div className='dialog-content'>
                     <div className='images-dialog__header'>Select images for this board</div>
                     <div className='added__images'>
-                        {Object.values(selected).map((photo) => (
+                        {Object.values(boardPhotos).map((photo) => (
                             <button value={photo.id} className='photo__con'>
                                 <img className='folder-photo' src={photo.photo_url} alt='board photo' />
                             </button>

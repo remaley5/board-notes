@@ -6,9 +6,9 @@ import { ProtectedRoute, AuthRoute } from './Routes'
 import Landing from './components/Landing'
 import Home from './components/Home'
 import Sketchbook from './components/Sketchbook'
-import Nav from './components/Nav'
 import Signup from './components/auth/Signup'
 import Moodboard from './components/Moodboard'
+import {setPhotos} from './state'
 
 const App = () => {
     let location = useLocation();
@@ -16,23 +16,9 @@ const App = () => {
     const [currentUserId, setCurrentUserId] = useState(null);
     const [loading, setLoading] = useState(true);
     const [otherUserId, setOtherUserId] = useState(null);
-    const [photos, setPhotos] = useState([])
     const [currentTextBox, setCurrentTextBox] = useState('')
     const [currentPhoto, setCurrentPhoto] = useState(null)
     const [text, setText] = useState('enter text')
-
-    const photoContextValue = {
-        currentPhoto,
-        setCurrentPhoto,
-        photos
-    }
-
-    const textContextValue = {
-        text,
-        setText,
-        currentTextBox,
-        setCurrentTextBox
-    }
 
     const authContextValue = {
         fetchWithCSRF,
@@ -76,6 +62,7 @@ const App = () => {
         (async () => {
             const res = await fetch(`/api-photos/${currentUserId}`)
             const data = await res.json();
+            console.log('loading photos', data)
             setPhotos(data)
         })())
     }, [currentUserId])
@@ -86,8 +73,6 @@ const App = () => {
 
     return (
         <AuthContext.Provider value={authContextValue}>
-            <PhotoContext.Provider value={photoContextValue}>
-                <TextContext.Provider value={textContextValue}>
                 <Switch >
                     <AuthRoute path='/landing' component={Landing} />
                     <AuthRoute
@@ -120,8 +105,6 @@ const App = () => {
                         currentUserId={currentUserId}
                     />
                 </Switch>
-                </TextContext.Provider>
-            </PhotoContext.Provider>
         </AuthContext.Provider>
     )
 }

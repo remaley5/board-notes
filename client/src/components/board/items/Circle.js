@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useCallback } from "react";
 import { Circle as KonvaCircle, Transformer } from "react-konva";
 
-import { LIMITS } from "./constants";
-import { selectShape, transformCircleShape, moveShape } from "./state";
+import { LIMITS } from "../../../constants";
+import { selectShape, transformCircleShape, moveShape } from "../../../state";
 
 const boundBoxCallbackForCircle = (oldBox, newBox) => {
   if (

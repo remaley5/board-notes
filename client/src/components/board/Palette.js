@@ -1,13 +1,12 @@
 import React, { useContext, useState, useEffect} from "react";
 import { AuthContext } from '../../context'
 import Upload from '../board/tools/Upload'
-import {getSelectedPhotos} from './items/state';
+import {getSelectedPhotos} from '../../state';
 import AddPhotos from "./items/AddPhotos";
-import { DRAG_DATA_KEY, SHAPE_TYPES } from "./items/constants";
+import { DRAG_DATA_KEY, SHAPE_TYPES } from "../../constants";
 import { Photo } from "./items/Photo";
 
 const Palette = ({ type, setNewText, newText }) => {
-  // const { photos } = useContext(PhotoContext)
   const { currentUserId } = useContext(AuthContext);
   const [boardPhotos, setBoardPhotos] = useState([])
   const [load, setLoad] = useState(false)
@@ -57,7 +56,7 @@ const Palette = ({ type, setNewText, newText }) => {
     if(selectedPhotos) {
       setBoardPhotos(selectedPhotos)
     }
-    console.log('GOT PHOTOS', selectedPhotos)
+    console.log('got selected photos ', selectedPhotos)
   }, [])
 
   return (

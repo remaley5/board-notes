@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useCallback, useState, useContext } from "react";
 import { Text as KonvaText, Transformer } from "react-konva";
 import { TextContext } from "../../../context";
-import { LIMITS } from "./constants";
-import { selectShape, transformTextShape, moveShape } from "./state";
+import { LIMITS } from "../../../constants";
+import { selectShape, transformTextShape, moveShape } from "../../../state";
 
 const boundBoxCallbackForText = (oldBox, newBox) => {
     if (

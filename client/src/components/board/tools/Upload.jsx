@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import {setPhotos} from '../items/state'
+import {setPhotos} from '../../../state'
 import { AuthContext } from '../../../context'
 
 function Upload({ setLoading, allPhotos, setAllPhotos }) {

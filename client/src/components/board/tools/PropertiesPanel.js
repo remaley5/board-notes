@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import TextEditor from './TextEditor'
-import { useShapes, updateAttribute, deleteShape } from "../items/state";
+import { useShapes, updateAttribute, deleteShape } from "../../../state";
 import { TextareaAutosize } from "@material-ui/core";
 
 const fonts = ['Times New Roman', 'Luminari', 'Courier New', 'Trattatello', 'Comic Sans MS', 'Arial Black']

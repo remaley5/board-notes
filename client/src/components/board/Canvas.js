@@ -13,8 +13,8 @@ import {
   createText,
   saveDiagram,
   reset,
-} from "./items/state";
-import { DRAG_DATA_KEY, SHAPE_TYPES } from "./items/constants";
+} from "../../state";
+import { DRAG_DATA_KEY, SHAPE_TYPES } from "../../constants";
 import { Shape } from './items/Shape';
 
 const handleDragOver = (event) => event.preventDefault();
