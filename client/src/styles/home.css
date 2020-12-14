@@ -1,0 +1,147 @@
+.sketches__con {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 80%;
+    margin: auto;
+}
+
+.sketch__con {
+    height: 200px;
+    width: 200px;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+}
+
+/* .sketch-link {
+    color: gray;
+    text-decoration: none;
+}
+
+.sketch-link:hover {
+    color: black;
+} */
+
+.sketch__title {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: gray;
+    background-color: rgba(255, 255, 255, 0.671);
+    padding: 20px;
+    position: absolute;
+}
+
+.sketch__description {
+    position: absolute;
+    opacity: 0;
+    color: rgb(84, 83, 83);
+    background-color: rgb(238, 238, 238);
+    height: 100%;
+    width: 100%;
+    border: 1px solid rgb(228, 228, 228);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 1px;
+    line-height: 23px;
+}
+
+
+.sketch__description:hover {
+    opacity: 100;
+    z-index: 1000;
+}
+
+
+.sketch__description:hover + .hide {
+    display: block;
+}
+
+.sketchbook-options {
+    display: flex;
+    gap: 20px;
+}
+
+.sketchbook-option {
+    background: none;
+    text-transform: lowercase;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(167, 167, 167);
+    text-decoration: underline;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.sketchbook-option:hover {
+    color: rgb(82, 82, 82);
+    text-decoration: none;
+}
+
+.gap {
+    padding: 40px;
+}
+
+.dialog-preview {
+    height: 200px;
+    width: 200px;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title-input {
+    text-align: center;
+    padding: 15px;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.564);
+    text-transform: uppercase;
+    overflow: wrap;
+    color: rgb(85, 85, 85);
+    max-width: 198px;
+    min-width: 198px;
+    min-height: 50px;
+}
+
+.description-input {
+    text-align: center;
+    padding: 15px;
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0.564);
+    text-transform: lowercase;
+    overflow: wrap;
+    color: rgb(80, 80, 80);
+    max-width: 198px;
+    min-width: 198px;
+    min-height: 50px;
+}
+
+.dialog-btns {
+    display: flex;
+    margin-top: 60px;
+}
+
+.dialog-btn {
+    background: none;
+    border: 1px solid rgb(196, 196, 196);
+    padding: 10px 20px;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: gray;
+}
+
+.dialog-btn:hover {
+    background-color: gray;
+    color: white;
+    border: none;
+}
