@@ -1,13 +1,16 @@
 import Nav from './Nav';
 import Loading from './Loading'
-import React, { useState} from 'react';
+import React, { useState, useContext, useEffect} from 'react';
 import {NavLink} from 'react-router-dom'
 import Canvas from './board/Canvas'
 import Palette from './board/Palette';
 import PropertiesPanel from './board/tools/PropertiesPanel'
+import { AuthContext } from '../context'
+import {setPhotos} from '../state'
 const categories = ['images', 'text', 'shapes', 'pallets']
 
 function Moodboard(props) {
+    const { currentUserId } = useContext(AuthContext);
     const [type, setType] = useState('images')
     const [newText, setNewText] = useState(false)
     const [saving, setSaving] = useState(false)
@@ -20,6 +23,17 @@ function Moodboard(props) {
     const handleClick = e => {
         setType(e.target.value)
     }
+
+    useEffect(() => {
+        if (currentUserId)(
+        (async () => {
+            const res = await fetch(`/api-photos/${currentUserId}`)
+            const data = await res.json();
+            console.log('loading photos', data)
+            setPhotos(data)
+        })())
+    })
+
 
     return (
         <div className='page'>

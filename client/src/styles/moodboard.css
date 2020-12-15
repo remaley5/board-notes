@@ -283,7 +283,7 @@ canvas {
 }
 
 .photo-selected {
-    opacity: 50%;
+    opacity: .7;
 }
 
 .star {

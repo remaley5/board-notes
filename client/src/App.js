@@ -57,16 +57,6 @@ const App = () => {
         restoreCSRF();
     }, []);
 
-    useEffect(() => {
-        if (currentUserId)(
-        (async () => {
-            const res = await fetch(`/api-photos/${currentUserId}`)
-            const data = await res.json();
-            console.log('loading photos', data)
-            setPhotos(data)
-        })())
-    }, [currentUserId])
-
     if (loading) {
         return null;
     }
