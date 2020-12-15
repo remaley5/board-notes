@@ -21,7 +21,9 @@ const AddPhotos = ({ boardPhotos, setBoardPhotos }) => {
         const photos = getPhotos();
         setSelected(boardPhotos);
         console.log('setting all photos ', photos)
-        setAllPhotos(photos);
+        if (photos){
+            setAllPhotos(photos);
+        }
         setOpenDialog(true);
     }
 
