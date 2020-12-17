@@ -19,16 +19,16 @@ const TextEditor = props => {
     //   const htmlToJpeg = document.querySelector('.ql-editor')
     //   const height = htmlToJpeg.clientHeight
     //   const width = htmlToJpeg.clientWidth
-    //   console.log(htmlToJpeg)
-    //   console.log(htmlToJpeg.clientHeight)
+    //   // console.log(htmlToJpeg)
+    //   // console.log(htmlToJpeg.clientHeight)
     //   const image = await toPng(document.querySelector('.ql-editor'), {
     //     backgroundColor: 'transparent',
     //   })
-    //   console.log(image)
-    //   console.log(quillRef.current.state.value)
+    //   // console.log(image)
+    //   // console.log(quillRef.current.state.value)
     //   const quill = quillRef.current.state.value
     //   const text = await html2canvas(quill)
-    //   console.log(text)
+    //   // console.log(text)
     //     createPhoto({
     //       currentPhoto: image,
     //       height,

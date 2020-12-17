@@ -13,7 +13,7 @@ const shapeSelector = (state) => state.shapes[state.selected];
 
 const PropertiesPanel = ({ newText, setNewText }) => {
   const selectedShape = useShapes(shapeSelector);
-  console.log('newText', newText)
+  // console.log('newText', newText)
 
   const updateAttr = useCallback((event) => {
     let attr = event.target.name;
@@ -21,15 +21,15 @@ const PropertiesPanel = ({ newText, setNewText }) => {
     if (event.target.name == 'strokeWidth') {
       value = parseInt(event.target.value, 10)
     }
-    console.log('ATTRIBUTE', attr, event.target.value)
+    // console.log('ATTRIBUTE', attr, event.target.value)
     updateAttribute(attr, value);
 
   }, []);
 
   const handleMove = e => {
-    console.log('moving....')
+    // console.log('moving....')
     selectedShape.moveToTop()
-    console.log('moved...')
+    // console.log('moved...')
   }
 
   return (

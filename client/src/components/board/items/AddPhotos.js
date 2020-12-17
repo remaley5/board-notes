@@ -20,7 +20,7 @@ const AddPhotos = ({ boardPhotos, setBoardPhotos }) => {
         e.preventDefault();
         const photos = getPhotos();
         setSelected(boardPhotos);
-        console.log('setting all photos ', photos)
+        // console.log('setting all photos ', photos)
         if (photos){
             setAllPhotos(photos);
         }

@@ -54,7 +54,7 @@ export function Text({ id, isSelected, type, canvas, stage, layer, ...shapeProps
     );
 
     useEffect(() => {
-        // console.log('TEXT', text)
+        // // console.log('TEXT', text)
     }, [text])
 
     return (

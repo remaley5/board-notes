@@ -17,11 +17,11 @@ const Sketchbook = (props) => {
             const data = await response.json()
             if (data.boards.length >= 1) {
                 const boardsData = data.boards
-                console.log(boardsData)
+                // console.log(boardsData)
                 const boards = []
                 while (boardsData.length >= 1) {
                     const image = boardsData.pop()
-                    console.log(image)
+                    // console.log(image)
                     image.crossOrigin = 'Anonymous'
                     boards.push(image)
                 }

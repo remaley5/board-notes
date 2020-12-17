@@ -13,7 +13,7 @@ const Palette = ({ type, setNewText, newText }) => {
 
   const handleNewText = () => {
     setNewText(true)
-    console.log('setNewText', newText)
+    // console.log('setNewText', newText)
   }
 
   const handleDragStart = (event) => {
@@ -22,7 +22,7 @@ const Palette = ({ type, setNewText, newText }) => {
     let currentWidth = null
 
     const type = event.target.dataset.shape;
-    console.log('draggging ....', type)
+    // console.log('draggging ....', type)
     if (type) {
       if (type === 'image') {
         currentWidth = event.target.width * 2
@@ -46,7 +46,7 @@ const Palette = ({ type, setNewText, newText }) => {
         currentHeight,
         currentWidth
       });
-      console.log(dragPayload);
+      // console.log(dragPayload);
       event.nativeEvent.dataTransfer.setData(DRAG_DATA_KEY, dragPayload);
     }
   };
@@ -56,7 +56,7 @@ const Palette = ({ type, setNewText, newText }) => {
     if(selectedPhotos) {
       setBoardPhotos(selectedPhotos)
     }
-    console.log('got selected photos ', selectedPhotos)
+    // console.log('got selected photos ', selectedPhotos)
   }, [])
 
   return (

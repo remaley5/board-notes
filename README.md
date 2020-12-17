@@ -1,3 +1,8 @@
+When saving becomes true => What is being rendered?
+When saving becomes false
+
+-- change to just the word saving
+
 # Flask React Project
 
 This is the backend for the Flask React project.
@@ -65,11 +70,11 @@ git clone https://github.com/appacademy-starters/react-project-starter.git --bra
 7. Push your docker container to heroku from the root directory of your project.
    This will build the dockerfile and push the image to your heroku container registry
    ```bash
-   heroku container:push web -a board_notes
+   heroku container:push web -a board-notes
    ```
 8. Release your docker container to heroku
    ```bash
-   heroku container:release web -a board_notes
+   heroku container:release web -a board-notes
    ```
 9. set up your database:
    ```bash

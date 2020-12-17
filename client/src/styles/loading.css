@@ -9,6 +9,12 @@
 	padding-top: 20%;
 }
 
+.saving-text {
+	font-size: 40px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+}
 .wrap.cube-board {
 	position: fixed;
 	background-color: rgba(0, 0, 0, 0.425);
@@ -18,6 +24,7 @@
 	position: relative;
 	margin: auto;
 	transform-style: preserve-3d;
+	/* animation: spin 5s infinite linear; */
 }
 
  .cube-board .cube {
@@ -107,11 +114,7 @@
 	transform: translateZ(100px);
 }
 
-@keyframes spin {
+/* @keyframes spin {
 	from { transform: rotateY(0); }
 	to { transform: rotateY(360deg); }
-}
-
-.cube {
-	animation: spin 5s infinite linear;
-}
+} */

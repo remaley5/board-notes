@@ -15,7 +15,7 @@ function Upload({ setLoading, allPhotos, setAllPhotos }) {
 	useEffect(() => {
 		const formData = new FormData();
 		formData.append("file", photoFile);
-		// console.log(photoFile)
+		// // console.log(photoFile)
 		if(photoFile){
 			postPhoto(formData);
 		}
@@ -23,14 +23,14 @@ function Upload({ setLoading, allPhotos, setAllPhotos }) {
 
 
 	const postPhoto = async (formData) => {
-		console.log('CURRENT USER ID', currentUserId)
+		// console.log('CURRENT USER ID', currentUserId)
 		let response = await fetchWithCSRF(`/api-photos/${currentUserId}`, {
 			method: 'POST',
 			body: formData,
 		});
 		if (response.ok) {
 			const data = await response.json()
-			console.log('photo in response', data.photo)
+			// console.log('photo in response', data.photo)
 			setPhotos([...allPhotos, data.photo])
 			setAllPhotos([...allPhotos, data.photo])
 			setLoading(false)

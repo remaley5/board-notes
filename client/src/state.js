@@ -24,13 +24,13 @@ export const useShapes = createStore(() => {
 const setState = (fn) => useShapes.set(produce(fn));
 
 export const setPhotos = (photos) => {
-  console.log('setting photos ', photos)
+  // console.log('setting photos ', photos)
   localStorage.setItem(BOARD_PHOTOS, JSON.stringify(photos))
 }
 
 export const getPhotos = () => {
   const photos = JSON.parse(localStorage.getItem(BOARD_PHOTOS))
-  console.log('getting photos ', photos)
+  // console.log('getting photos ', photos)
   return photos;
 }
 
@@ -162,7 +162,7 @@ export const moveShape = (id, event) => {
 
 export const updateAttribute = (attr, value) => {
   setState((state) => {
-    console.log(JSON.stringify(state.shapes))
+    // console.log(JSON.stringify(state.shapes))
     const shape = state.shapes[state.selected];
     if (shape) {
       shape[attr] = value;
@@ -174,7 +174,7 @@ export const updateAttribute = (attr, value) => {
 
 export const moveToTop = () => {
   setState((state) => {
-    console.log('SHAPES state.shapes', JSON.stringify(state.shapes))
+    // console.log('SHAPES state.shapes', JSON.stringify(state.shapes))
   })
 };
 
@@ -208,7 +208,7 @@ export const transformRectangleShape = (node, id, event) => {
 };
 
 export const transformPhotoShape = (node, id, event) => {
-  //console.log('transformPhotoShape, node: ', node,' id: ',  id, ' event: ', event)
+  //// console.log('transformPhotoShape, node: ', node,' id: ',  id, ' event: ', event)
   const scaleX = node.scaleX();
   const scaleY = node.scaleY();
 
@@ -217,7 +217,7 @@ export const transformPhotoShape = (node, id, event) => {
 
   setState((state) => {
     const shape = state.shapes[id];
-    // //console.log('shape', shape)
+    // //// console.log('shape', shape)
     // proxy
 
     if (shape) {
@@ -237,7 +237,7 @@ export const transformPhotoShape = (node, id, event) => {
         LIMITS.PHOTO.MAX
       );
 
-      // //console.log('shape: ', shape )
+      // //// console.log('shape: ', shape )
       // Proxy
     }
   });

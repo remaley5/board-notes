@@ -22,7 +22,7 @@ const Canvas = ({sketchbookId, sketchbookTitle, boardTitle, setSaving}) => {
   const { fetchWithCSRF, currentUserId } = useContext(AuthContext);
   const shapes = useShapes((state) => Object.entries(state.shapes));
   const history = useHistory()
-  //console.log('shapes', shapes) // Array(2)
+  //// console.log('shapes', shapes) // Array(2)
   const [isDragging, setIsDragging] = useState(false)
   const stageRef = useRef();
   const canvasRef = useRef();
@@ -108,14 +108,15 @@ const Canvas = ({sketchbookId, sketchbookTitle, boardTitle, setSaving}) => {
 
 	const handleSave = async(e) => {
     setSaving(true)
+    console.log('saving true')
     clearSelection();
     const dataURL = stageRef.current.toDataURL();
     const blob = dataURItoBlob(dataURL)
     const formData = new FormData();
     formData.append("file", blob);
     formData.append("title", boardTitle)
-    console.log('sketchBookId in Canvas', sketchbookId)
-    console.log('typof', (typeof sketchbookId))
+    // console.log('sketchBookId in Canvas', sketchbookId)
+    // console.log('typof', (typeof sketchbookId))
     let response = await fetchWithCSRF(`/api-photos/sketchbook/${sketchbookId}`, {
 			method: 'POST',
 			body: formData,
@@ -124,6 +125,7 @@ const Canvas = ({sketchbookId, sketchbookTitle, boardTitle, setSaving}) => {
     localStorage.clear('__selected_photos__')
     history.push(`/sketchbook/${sketchbookId}/${sketchbookTitle}`)
     setSaving(false)
+    console.log('setting saving false')
 	};
 
 

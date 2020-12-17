@@ -57,7 +57,7 @@ const Home = () => {
     return (
         <div className='page'>
             <div className='page-header'>
-                <div></div>
+                <div className='sketchbook-header'>We're currently doing some deploy debugging! Excuse the mess.</div>
                 <div className='nav'>
                     <Nav />
                     <button onClick={handleOpen} className="add-btn">

@@ -12,7 +12,7 @@ export function Shape({ shape, stage, canvas, layer }) {
     (state) => state.selected === shape.id,
     [shape]
     );
-  //console.log('shape: width', shape.width, 'height',)
+  //// console.log('shape: width', shape.width, 'height',)
   const isSelected = useShapes(isSelectedSelector);
 
   if (shape.type === SHAPE_TYPES.RECT) {

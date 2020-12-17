@@ -17,7 +17,7 @@ function Moodboard(props) {
 
     const sketchbookId = parseInt(props.match.params.id, 10);
     const sketchbookTitle = props.match.params.sketchbookTitle
-    console.log('sketchbookId', sketchbookId)
+    // console.log('sketchbookId', sketchbookId)
     const boardTitle = props.match.params.boardTitle;
 
     const handleClick = e => {
@@ -29,11 +29,12 @@ function Moodboard(props) {
         (async () => {
             const res = await fetch(`/api-photos/${currentUserId}`)
             const data = await res.json();
-            console.log('loading photos', data)
+            // console.log('loading photos', data)
             setPhotos(data)
         })())
     })
 
+    debugger;
 
     return (
         <div className='page'>
@@ -61,7 +62,6 @@ function Moodboard(props) {
                     </div>
                 </div>
                 <div className='moodboard-body'>
-                    {/* <button id='save' onClick={handleSave}>Save as PNG</button> */}
                     <Canvas sketchbookId={sketchbookId} sketchbookTitle={sketchbookTitle} boardTitle={boardTitle} setSaving={setSaving} />
                     <PropertiesPanel newText={newText} setNewText={setNewText} />
                 </div>

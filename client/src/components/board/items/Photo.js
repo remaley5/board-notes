@@ -4,7 +4,7 @@ import { LIMITS } from "../../../constants";
 import { selectShape, transformPhotoShape, moveShape } from "../../../state";
 
 const boundBoxCallbackForPhoto = (oldBox, newBox) => {
-  //console.log('Photo.js--boundBoxCallbackForPhoto', 'oldBox: ', oldBox, 'newBox', newBox )
+  //// console.log('Photo.js--boundBoxCallbackForPhoto', 'oldBox: ', oldBox, 'newBox', newBox )
 
   if (
     newBox.width < LIMITS.PHOTO.MIN ||
