@@ -18,18 +18,18 @@ with app.app_context():
     db.session.add(sketchbook_one)
     db.session.add(sketchbook_two)
 
-    photo_one = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/WedNov41339012020.png')
-    photo_two = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/WedNov41339202020.png')
-    photo_three = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/WedNov41339252020.png')
+    photo_one = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171111392020.png')
+    photo_two = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171111442020.png')
+    photo_three = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171111492020.png')
+    photo_four = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171111532020.png')
 
     db.session.add(photo_one)
     db.session.add(photo_two)
     db.session.add(photo_three)
+    db.session.add(photo_four)
 
-    board_one = Board(sketchbook_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/MonNov160803002020.png', title='soft chair inspiration')
-    board_two = Board(sketchbook_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/MonNov160752542020.png', title='rigid chair inpsiration')
+    board_one = Board(sketchbook_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171112412020.png', title='tester board')
 
     db.session.add(board_one)
-    db.session.add(board_two)
 
     db.session.commit()
