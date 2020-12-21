@@ -18,18 +18,18 @@ with app.app_context():
     db.session.add(sketchbook_one)
     db.session.add(sketchbook_two)
 
-    photo_one = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171111392020.png')
-    photo_two = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171111442020.png')
-    photo_three = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171111492020.png')
-    photo_four = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171111532020.png')
+    # photo_one = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171111392020.png')
+    # photo_two = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171111442020.png')
+    # photo_three = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171111492020.png')
+    # photo_four = Photo(user_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171111532020.png')
 
-    db.session.add(photo_one)
-    db.session.add(photo_two)
-    db.session.add(photo_three)
-    db.session.add(photo_four)
+    # db.session.add(photo_one)
+    # db.session.add(photo_two)
+    # db.session.add(photo_three)
+    # db.session.add(photo_four)
 
-    board_one = Board(sketchbook_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171112412020.png', title='tester board')
+    # board_one = Board(sketchbook_id=1, photo_url='https://sophie-boards-bucket.s3-us-west-2.amazonaws.com/ThuDec171112412020.png', title='tester board')
 
-    db.session.add(board_one)
+    # db.session.add(board_one)
 
     db.session.commit()
