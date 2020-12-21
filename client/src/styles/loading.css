@@ -15,16 +15,24 @@
 	color: white;
 	text-align: center;
 }
+
+.cube-board .loading-gif {
+	height: 500px;
+	opacity: .5;
+}
+
 .wrap.cube-board {
 	position: fixed;
-	background-color: rgba(0, 0, 0, 0.425);
-
+	background-color: rgba(255, 255, 255, 0.616);
+	display: flex;
+	justify-content: center;
+	padding-top: 20%;
 }
+/*
 .cube {
 	position: relative;
 	margin: auto;
 	transform-style: preserve-3d;
-	/* animation: spin 5s infinite linear; */
 }
 
  .cube-board .cube {
@@ -112,7 +120,7 @@
 .cube-board .front  {
 	background-color: skyblue;
 	transform: translateZ(100px);
-}
+} */
 
 /* @keyframes spin {
 	from { transform: rotateY(0); }

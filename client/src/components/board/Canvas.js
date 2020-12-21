@@ -110,7 +110,10 @@ const Canvas = ({sketchbookId, sketchbookTitle, boardTitle, setSaving}) => {
     setSaving(true)
     console.log('saving true')
     clearSelection();
+    console.log('stageRef.current', stageRef.current)
+    console.log('stageRef', stageRef)
     const dataURL = stageRef.current.toDataURL();
+    console.log('DATA URL', dataURL)
     const blob = dataURItoBlob(dataURL)
     const formData = new FormData();
     formData.append("file", blob);

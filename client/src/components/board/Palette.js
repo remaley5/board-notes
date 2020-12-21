@@ -10,6 +10,7 @@ const Palette = ({ type, setNewText, newText }) => {
   const { currentUserId } = useContext(AuthContext);
   const [boardPhotos, setBoardPhotos] = useState([])
   const [load, setLoad] = useState(false)
+  const [selected, setSelected] = useState([])
 
   const handleNewText = () => {
     setNewText(true)

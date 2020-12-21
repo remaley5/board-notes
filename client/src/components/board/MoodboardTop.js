@@ -6,7 +6,7 @@ const MoodboardTop = ({photos}) => {
         <div className='top__photos'>
             {photos.map((url) => (
                 <div className='top__item'>
-                    <img src={url} className='top__img' alt='photo'/>
+                    <img src={url} className='top__img' crossOrigin='Anonymous' alt='photo'/>
                 </div>
             ))}
         </div>

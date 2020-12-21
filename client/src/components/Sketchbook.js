@@ -68,7 +68,7 @@ const Sketchbook = (props) => {
                         <div className='boards-sidebar'>
                             {boards.map((board) => (
                                 <div className='board-container' onClick={() => handleChoose(board)}>
-                                    <img className='board-img' src={board.photo_url} alt={board.title} />
+                                    <img className='board-img' crossOrigin='Anonymous' src={board.photo_url} alt={board.title} />
                                     <div className='board-title'>{board.title}</div>
                                 </div>
                             ))}
@@ -81,7 +81,7 @@ const Sketchbook = (props) => {
                     {currentBoard ?
                         <div className='board-view'>
                             <div className='board-view__title'>{currentBoard.title}</div>
-                            <img src={currentBoard.photo_url} alt={currentBoard.title} className='board-view__img' />
+                            <img src={currentBoard.photo_url} crossOrigin='Anonymous' alt={currentBoard.title} className='board-view__img' />
                         </div> : null}
                 </div>}
             <dialog className='page-mask' onClose={handleClose} open={open}>

@@ -31,9 +31,7 @@ export function Photo({ id, isSelected, type, ...shapeProps }) {
   }, [isSelected]);
 
   const image = new Image();
-
-  image.src = url
-  image.crossOrigin = 'Anonymous'
+  image.setAttribute('src', url)
 
   const handleSelect = useCallback(
     (event) => {

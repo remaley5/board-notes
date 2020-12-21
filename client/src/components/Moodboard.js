@@ -34,7 +34,6 @@ function Moodboard(props) {
         })())
     })
 
-    debugger;
 
     return (
         <div className='page'>

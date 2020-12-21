@@ -44,7 +44,7 @@ const AddPhotos = ({ boardPhotos, setBoardPhotos }) => {
                     <div className='added__images'>
                         {Object.values(selected).map((photo) => (
                             <button value={photo.id} className='photo__con'>
-                                <img className='folder-photo' src={photo.photo_url} alt='board photo' />
+                                <img className='folder-photo' src={photo.photo_url} crossOrigin='Anonymous' alt='board photo' />
                             </button>
                         ))}
                     </div>
