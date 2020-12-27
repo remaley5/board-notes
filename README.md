@@ -29,7 +29,7 @@ git clone https://github.com/appacademy-starters/react-project-starter.git --bra
    ```bash
    pipenv shell
    ```
-
+j
    ```bash
    python -m database && flask run
    ```
