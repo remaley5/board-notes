@@ -1,6 +1,6 @@
 .pallet {
     height: 120px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 .top {
     display: flex;
@@ -114,6 +114,7 @@ input[type="file"] {
     width: 802px;
     border: 1px solid gray;
     height: 1200px;
+    margin-top: 30px;
 }
 
 canvas {
@@ -220,7 +221,7 @@ canvas {
 .select.container {
     flex-wrap: wrap;
     overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: scroll;
     min-height: 150px;
 }
 

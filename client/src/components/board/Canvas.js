@@ -9,7 +9,6 @@ import {
   createCircle,
   createRectangle,
   createPhoto,
-  createText,
   saveDiagram,
   reset,
 } from "../../state";
@@ -129,7 +128,6 @@ const Canvas = ({folderId, folderTitle, boardTitle, setSaving}) => {
         <button className='btn' onClick={handleSave}>Save</button>
         <button className='btn' onClick={reset}>Reset</button>
         <button id='save' className='btn' onClick={downloadURI}>Download</button>
-
       </div>
       <Stage
         ref={stageRef}

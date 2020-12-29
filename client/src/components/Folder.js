@@ -13,6 +13,7 @@ const Folder = (props) => {
     const [currentBoard, setCurrentBoard] = useState(null)
 
     useEffect(() => {
+        localStorage.clear();
         (async () => {
             const response = await fetch(`/api-folder/boards/${folderId}`)
             const data = await response.json()

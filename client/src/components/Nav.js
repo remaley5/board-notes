@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
     const { setCurrentUserId, currentUserId, fetchWithCSRF } = useContext(AuthContext);
+
     const logoutUser = async () => {
         const response = await fetchWithCSRF('/logout', {
             method: 'POST',

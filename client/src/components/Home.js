@@ -52,8 +52,11 @@ const Home = () => {
         let data = await response.json()
 
         history.push(`/folder/${data.id}/${data.title}`)
-
     }
+
+    useEffect(() => {
+        localStorage.clear();
+    })
 
     return (
         <div className='page home'>

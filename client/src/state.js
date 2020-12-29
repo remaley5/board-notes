@@ -2,9 +2,8 @@ import { createStore } from "@halka/state";
 import produce, { current } from "immer";
 import clamp from "clamp";
 import { nanoid } from "nanoid";
-import {AuthContext} from './context'
-
 import { SHAPE_TYPES, DEFAULTS, LIMITS } from "./constants";
+
 
 const APP_NAMESPACE = "__boards__";
 const BOARD_PHOTOS = '__photos__';
