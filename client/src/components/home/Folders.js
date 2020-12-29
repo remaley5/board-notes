@@ -28,7 +28,10 @@ const Folders = ({handleOpen}) => {
                         <div className='title'>{folder.title}</div>
                     </div>
                 ))}
-                </> : null
+                </> :
+                <div className='add' style={{backgroundColor: ' rgb(240, 240, 240)'}}>
+                    <button onClick={handleOpen} className='text btn'>CREATE NEW FOLDER</button>
+                </div>
                 }
             </div>
         </>

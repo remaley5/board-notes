@@ -82,7 +82,7 @@
 }
 
 
-.add {
+.board .add {
     height: 80px;
     width: 90px;
     display: flex;
@@ -225,6 +225,8 @@ canvas {
     flex-wrap: wrap;
     overflow-y: scroll;
     overflow-x: scroll;
+    padding-bottom:none;
+    margin-bottom: -30px;
     min-height: 150px;
 }
 
@@ -289,13 +291,18 @@ canvas {
 }
 
 
-.select {
-    width: 200px;
+.options.font .select,
+.selected.font {
+  width: 200px;
     margin: auto;
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-content: center;
+}
+
+.options.font {
+  width: 200px;
 }
 
 .delete {
@@ -325,7 +332,6 @@ canvas {
 }
 
 .tools .options .selected {
-    width: 100%;
     padding: 5px 10px;
     font-size: 15px;
     color: gray;
