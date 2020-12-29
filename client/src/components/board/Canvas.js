@@ -22,8 +22,6 @@ const Canvas = ({folderId, folderTitle, boardTitle, setSaving}) => {
   const { fetchWithCSRF, currentUserId } = useContext(AuthContext);
   const shapes = useShapes((state) => Object.entries(state.shapes));
   const history = useHistory()
-  //// console.log('shapes', shapes) // Array(2)
-  const [isDragging, setIsDragging] = useState(false)
   const stageRef = useRef();
   const canvasRef = useRef();
   const layerRef = useRef();
@@ -63,14 +61,6 @@ const Canvas = ({folderId, folderTitle, boardTitle, setSaving}) => {
           width: clientWidth
         });
       }
-      // else if (type === SHAPE_TYPES.TEXT) {
-      //   createText({
-      //     x: coords.x - offsetX,
-      //     y: coords.y - offsetY,
-      //     height: 100,
-      //     width: 100
-      //   });
-      // }
     }
 
     saveDiagram()
