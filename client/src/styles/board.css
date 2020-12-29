@@ -16,7 +16,7 @@
     width: 802px;
 }
 
-.top .options {
+.top .types {
     display: flex;
     text-transform: uppercase;
     font-family: Arial, Helvetica, sans-serif;
@@ -25,7 +25,7 @@
     font-size: 13px;
 }
 
-.pallet .option {
+.pallet .type {
     background: none;
     text-transform: uppercase;
     font-family: Arial, Helvetica, sans-serif;
@@ -34,6 +34,11 @@
     padding: 10px 20px;
     border-bottom: 1px solid rgb(194, 194, 194);
     z-index: 100;
+}
+
+.option .font {
+  font-size: 10px;
+  width: 100px;
 }
 
 .pallet .option:hover {
@@ -149,10 +154,8 @@ canvas {
 
 .toolbelt {
     display: flex;
-    flex-direction: column;
-    width: 400px;
-    align-items: center;
     z-index: 100;
+    gap: 30px;
 }
 
 .ql-container {
@@ -262,6 +265,7 @@ canvas {
 .tools {
     width: 90%;
     display: flex;
+    gap: 20px;
 }
 
 .key {
@@ -299,19 +303,20 @@ canvas {
   width: fit-content;
 }
 
-.tools .text {
+.tools .attributes {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.tools .text .font {
-  display: flex;
-  gap: 10px;
+  gap: 30px;
 }
 
 .font {
     width: 300px;
+}
+
+.tools .options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
 .color {
@@ -389,6 +394,12 @@ body {
   background-color: #ffffff;
   color: rgb(206, 206, 206);
   border: 1px solid rgb(245, 245, 245);
+}
+
+.tools .options .title {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 200;
 }
 
 .properties {

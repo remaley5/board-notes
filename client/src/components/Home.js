@@ -3,7 +3,7 @@ import Folders from './home/Folders'
 import Nav from './Nav'
 import { TextareaAutosize } from "@material-ui/core";
 import { AuthContext } from '../context'
-import { useHistory, NavLink } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import '../styles/home.css'
 
 

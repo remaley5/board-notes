@@ -48,6 +48,8 @@ function Board(props) {
             localStorage.clear();
             if (e.target.value === 'folder') {
                 history.push(`/folder/${folderId}/${folderTitle}`)
+            } else if (e.target.value === 'logout') {
+                logoutUser()
             } else {
                 history.push('/')
             }
@@ -76,7 +78,7 @@ function Board(props) {
                 <div className='title'>{boardTitle}</div>
                 <div className='nav'>
                     <button className='nav-link home-link' value='home' onClick={redirectNav}>home</button>
-                    <button onClick={logoutUser} className='nav-link logout-link'>Logout</button>
+                    <button onClick={redirectNav} className='nav-link logout-link'>Logout</button>
                     <button className='nav-link book-link' onClick={redirectNav} value='folder'>&#8592;  {folderTitle}</button>
                 </div>
             </div>
@@ -84,7 +86,7 @@ function Board(props) {
                 <div className='top' draggable='false'>
                     <div className='pallet'>
                         {categories.map((option, idx) => (
-                            <button className='option' key={idx} onClick={handleClick} value={option}>{option}</button>
+                            <button className='type' key={idx} onClick={handleClick} value={option}>{option}</button>
                         ))}
                         <div className='pallet' draggable='false'>
                             <Palette type={type} setNewText={setNewText} newText={newText} />
