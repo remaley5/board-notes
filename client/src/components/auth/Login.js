@@ -56,37 +56,33 @@ const Login = ({ setOpen }) => {
     }
 
     return (
-        <div className='login__con'>
-            <div className='sign-up login__dialog'>
-                <div className='login__content'>
-                    <button onClick={handleClose} className='exit-sign'>x</button>
-                    <h1 className='sign-in__title login__title'>
-                        Sign in
-              </h1>
-                    <div className='login__errors' id="form-dialog-title" onClose={handleClose}>
+        <div className='auth login'>
+            <div className='dialog'>
+                <div className='content'>
+                    <button onClick={handleClose} className='exit'>x</button>
+                    <h1 className='title'>Sign in</h1>
+                    <div className='errors'  onClose={handleClose}>
                         {errors.length ? errors.map((err) => <li key={err}>{err}</li>) : ''}
                     </div>
-                    <div className='sign-form login__form'>
-                        <label className='form-label' htmlFor="email">Email</label>
+                    <div className='form'>
+                        <label className='label' htmlFor="email">Email</label>
                         <input
-                            className='sign-in__text login__text'
                             id="email"
                             type="email"
                             placeholder="Email"
                             onChange={handleEmailChange}
                         />
-                        <label className='form-label' htmlFor="password">Password</label>
+                        <label className='label' htmlFor="password">Password</label>
                         <input
-                            className='sign-in__text login__text'
                             id="password"
                             type="password"
                             placeholder="Password"
                             onChange={handlePasswordChange}
                         />
                     </div>
-                    <div className='login__btns'>
-                        <button className='sign-form-btn login__btn left' onClick={handleSubmit}>login</button>
-                        <button className='sign-form-btn login__btn' onClick={handleDemoSubmit}>Demo</button>
+                    <div className='light btns'>
+                        <button className='light btn' onClick={handleSubmit}>login</button>
+                        <button className='light btn' onClick={handleDemoSubmit}>Demo</button>
                     </div>
                 </div>
             </div>

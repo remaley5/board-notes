@@ -7,17 +7,18 @@ import Palette from './board/Palette';
 import PropertiesPanel from './board/tools/PropertiesPanel'
 import { AuthContext } from '../context'
 import {setPhotos} from '../state'
-const categories = ['images', 'text', 'shapes', 'pallets']
+import '../styles/board.css'
+const categories = ['images', 'text', 'shapes']
 
-function Moodboard(props) {
+function Board(props) {
     const { currentUserId } = useContext(AuthContext);
     const [type, setType] = useState('images')
     const [newText, setNewText] = useState(false)
     const [saving, setSaving] = useState(false)
 
-    const sketchbookId = parseInt(props.match.params.id, 10);
-    const sketchbookTitle = props.match.params.sketchbookTitle
-    // console.log('sketchbookId', sketchbookId)
+    const folderId = parseInt(props.match.params.id, 10);
+    const folderTitle = props.match.params.folderTitle
+    // console.log('folderId', folderId)
     const boardTitle = props.match.params.boardTitle;
 
     const handleClick = e => {
@@ -36,32 +37,32 @@ function Moodboard(props) {
 
 
     return (
-        <div className='page'>
-            <div className='nav'>
-                <Nav/>
-                <NavLink to={`/sketchbook/${sketchbookId}/${sketchbookTitle}`}><button className='nav-link book-link'>{sketchbookTitle}</button></NavLink>
-            </div>
+        <div className='page board'>
             {
                 saving ?
                 <Loading classes={'cube-board'} />
                 : null
             }
-            <div className='page-header'>
-                <div className='sketchbook-header'>{boardTitle}</div>
+            <div className='header'>
+                <div className='title'>{boardTitle}</div>
+                <div className='nav'>
+                <Nav/>
+                <NavLink to={`/folder/${folderId}/${folderTitle}`}><button className='nav-link book-link'>{folderTitle}</button></NavLink>
             </div>
-            <div className='moodboard'>
-                <div className='moodboard-top' draggable='false'>
-                    <div className='moodboard-top__options'>
+            </div>
+            <div className=''>
+                <div className='top' draggable='false'>
+                    <div className='options'>
                         {categories.map((option, idx) => (
                             <button className='option' key={idx} onClick={handleClick} value={option}>{option}</button>
                         ))}
                     </div>
-                    <div className='moodboard-top__content' draggable='false'>
+                    <div className='pallet' draggable='false'>
                         <Palette type={type} setNewText={setNewText} newText={newText} />
                     </div>
                 </div>
-                <div className='moodboard-body'>
-                    <Canvas sketchbookId={sketchbookId} sketchbookTitle={sketchbookTitle} boardTitle={boardTitle} setSaving={setSaving} />
+                <div className='body'>
+                    <Canvas folderId={folderId} folderTitle={folderTitle} boardTitle={boardTitle} setSaving={setSaving} />
                     <PropertiesPanel newText={newText} setNewText={setNewText} />
                 </div>
             </div>
@@ -69,4 +70,4 @@ function Moodboard(props) {
         </div>
     );
 }
-export default Moodboard;
+export default Board;

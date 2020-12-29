@@ -1,8 +1,6 @@
-@import './landing.css';
+/* @import './landing.css'; */
 @import './universal.css';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
-@import './home.css';
-@import './moodboard.css';
-@import './sketchbook.css';
-@import './signup.css';
-@import './loading.css';
+/*
+@import './folder.css';
+@import './loading.css'; */

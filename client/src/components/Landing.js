@@ -1,31 +1,44 @@
 import React, { useState, useContext } from 'react';
 import { useHistory, NavLink } from 'react-router-dom';
-import {AuthContext} from '../context';
+import { AuthContext } from '../context';
 import Login from './auth/Login'
+import Signup from './auth/Signup'
+import '../styles/landing.css'
+import '../styles/signup.css'
 
 
 const Landing = () => {
-    let [open, setOpen] = useState(false);
+    let [loginOpen, setLoginOpen] = useState(false);
+    let [signupOpen, setSignupOpen] = useState(false);
 
-    const handleOpen = () => {
-        setOpen(true);
+    const handleLoginOpen = () => {
+        setLoginOpen(true);
     }
+
+    const handleSignupOpen = () => {
+        setSignupOpen(true);
+    }
+
     return (
-        <div className='landing'>
-            <div className='landing__body'>
-                <div className='landing__title'>boards</div>
-                <div className='landing__btns'>
-                    <button className='login__btn landing__btn' onClick={handleOpen}>Sign in</button>
-                <NavLink
-                    variant="contained"
-                    to="/signup"
-                    className='signup__btn landing__btn'>
+        <div className='page landing'>
+            <div className='body'>
+                <div className='title'>boards</div>
+                <div className='btns'>
+                    {/* <NavLink
+                        variant="contained"
+                        to="/signup"
+                        className='signup btn'>
                         I'm new
-                </NavLink>
+                </NavLink> */}
+                    <button className='signup btn' onClick={handleSignupOpen}>I'm new!</button>
+                    <button className='login btn' onClick={handleLoginOpen}>Sign in</button>
                 </div>
             </div>
-            <dialog className='landing__dialog page-mask' open={open}>
-                <Login setOpen={setOpen} />
+            <dialog className='mask' open={loginOpen}>
+                    <Login setOpen={setLoginOpen} />
+            </dialog>
+            <dialog className='mask' open={signupOpen}>
+                    <Signup setOpen={setSignupOpen} />
             </dialog>
         </div>
     )

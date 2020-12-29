@@ -1,0 +1,255 @@
+/*  {
+    margin-left: 50px;
+    min-width: 1200px;
+} */
+
+.pallet {
+    height: 120px;
+    margin-bottom: 20px;
+}
+.top {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-right: 49px;
+    border: none;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100000;
+    border-bottom: 1px solid gray;
+    width: 802px;
+}
+
+.top .options {
+    display: flex;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 3px;
+    color: rgb(87, 87, 87);
+    font-size: 13px;
+}
+
+.option {
+    background: none;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 3px;
+    color: rgb(87, 87, 87);
+    padding: 10px 20px;
+    border-bottom: 1px solid rgb(194, 194, 194);
+    z-index: 100;
+}
+
+.option:hover {
+    font-weight: bold;
+    color: black;
+    border-bottom: 2px solid gray;
+    cursor: pointer;
+}
+
+ .top .content {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    width: 800px;
+    overflow-x: scroll;
+    margin-bottom: 40px;
+}
+
+.imgs {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 20px;
+    margin-left: 20px;
+}
+
+.item {
+    height: 80px;
+    width: fit-content;
+    overflow: hidden;
+    border: 1px solid rgb(229, 229, 229);
+}
+
+.item .img {
+   height: 100%;
+}
+
+ .top .item:hover {
+    border: 1px solid gray;
+    /* box-shadow: 0 0 6px gray; */
+}
+
+
+.add {
+    height: 80px;
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(158, 157, 157);
+    background-color: rgb(247, 245, 245);
+}
+
+.board .add .btn {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 200;
+    width: 70px;
+    z-index: 1000;
+}
+
+
+input[type="file"] {
+    display: none;
+}
+
+.text .change {
+    font-size: 15px;
+    padding: 20px;
+    border: 1px solid rgb(207, 212, 215);
+    min-height: 55px;
+    max-width: 245px;
+    min-width: 245px;
+  }
+
+.canvas {
+    position: relative;
+    width: 802px;
+    border: 1px solid gray;
+    height: 1200px;
+}
+
+canvas {
+    width: inherit;
+}
+
+.stage {
+    width: 800px;
+}
+
+.toolbelt {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    align-items: center;
+    z-index: 100;
+}
+
+.ql-container {
+    background:white;
+  }
+
+  /* Snow Theme */
+  .ql-snow.ql-toolbar {
+    display: block;
+    background: #ffffff;
+  }
+
+  .ql-editor {
+    min-height: 18em;
+  }
+
+
+.tool {
+    height: 40px;
+    width: 40px;
+    border: 1px solid gray;
+}
+
+.tool:hover {
+    background-color: gainsboro;
+}
+
+.tool-btn {
+    margin-top: 30px;
+}
+
+
+/* FOLDER DIALOG */
+
+.board .dialog {
+    padding: 80px 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.board .dialog .header {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: gray;
+    padding-bottom: 20px;
+    border: none;
+    width: fit-content;
+}
+
+.selected.content {
+    min-height: 150px;
+    border-bottom: 1px solid gray;
+    margin-bottom: 30px;
+    width: 90%;
+}
+
+.dialog .select {
+    margin:auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+/* .dialog .selected {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 20px;
+    margin-left: 20px;
+}
+
+.selected .item {
+    height: 100px;
+    position: relative;
+    width: fit-content;
+    background-color: white;
+} */
+
+.select.container {
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    min-height: 150px;
+}
+
+.dialog .image {
+    height: 100%;
+    width: auto;
+}
+
+.select .item {
+    position: relative;
+}
+
+.select .image {
+    display: block;
+}
+
+.select .star {
+    position: absolute;
+}
+
+.faded {
+    opacity: .7;
+}
+
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+    padding-top: 20px;
+    width: 90%;
+    margin: auto;
+}

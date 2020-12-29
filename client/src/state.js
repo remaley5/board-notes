@@ -109,11 +109,13 @@ export const createCircle = ({ x, y }) => {
   });
 };
 
-export const createText = ({ x, y }) => {
+export const createText = () => {
+
   setState((state) => {
-    state.shapes[nanoid()] = {
+    const id = nanoid();
+    state.shapes[id] = {
       fontFamily: 'Arial',
-      text: 'enter text',
+      text: null,
       fontSize: 20,
       align: 'center',
       verticalAlign:'middle',
@@ -124,9 +126,10 @@ export const createText = ({ x, y }) => {
       type: SHAPE_TYPES.TEXT,
       padding: 10,
       rotation: DEFAULTS.ROTATION,
-      x,
-      y,
+      x: 340,
+      y: 159,
     };
+    state.selected = id;
   });
 };
 

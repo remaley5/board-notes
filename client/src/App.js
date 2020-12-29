@@ -1,24 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, useLocation } from 'react-router-dom';
 
-import { AuthContext, PhotoContext, TextContext } from './context';
+import { AuthContext} from './context';
 import { ProtectedRoute, AuthRoute } from './Routes'
 import Landing from './components/Landing'
 import Home from './components/Home'
-import Sketchbook from './components/Sketchbook'
+import Folder from './components/Folder'
 import Signup from './components/auth/Signup'
-import Moodboard from './components/Moodboard'
-import {setPhotos} from './state'
+import Board from './components/Board'
 
 const App = () => {
-    let location = useLocation();
     const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
     const [currentUserId, setCurrentUserId] = useState(null);
     const [loading, setLoading] = useState(true);
     const [otherUserId, setOtherUserId] = useState(null);
-    const [currentTextBox, setCurrentTextBox] = useState('')
-    const [currentPhoto, setCurrentPhoto] = useState(null)
-    const [text, setText] = useState('enter text')
 
     const authContextValue = {
         fetchWithCSRF,
@@ -77,21 +72,21 @@ const App = () => {
                         currentUserId={currentUserId}
                     />
                     <ProtectedRoute
-                        path="/moodboard"
+                        path="/board"
                         exact
-                        component={Moodboard}
+                        component={Board}
                         currentUserId={currentUserId}
                     />
                     <ProtectedRoute
-                        path="/sketchbook/:id/:title"
+                        path="/folder/:id/:title"
                         exact
-                        component={Sketchbook}
+                        component={Folder}
                         currentUserId={currentUserId}
                     />
                     <ProtectedRoute
-                        path="/sketchbook/new-board/:id/:sketchbookTitle/:boardTitle"
+                        path="/folder/new-board/:id/:folderTitle/:boardTitle"
                         exact
-                        component={Moodboard}
+                        component={Board}
                         currentUserId={currentUserId}
                     />
                 </Switch>

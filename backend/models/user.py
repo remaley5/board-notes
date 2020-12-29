@@ -46,8 +46,8 @@ class Photo(db.Model):
         }
 
 
-class SketchBook(db.Model):
-    __tablename__ = 'sketchbooks'
+class Folder(db.Model):
+    __tablename__ = 'folders'
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(
@@ -72,16 +72,16 @@ class Board(db.Model):
     __tablename__ = 'boards'
 
     id = db.Column(db.Integer, primary_key=True)
-    sketchbook_id = db.Column(db.Integer, db.ForeignKey(
-        "sketchbooks.id"), nullable=False)
+    folder_id = db.Column(db.Integer, db.ForeignKey(
+        "folders.id"), nullable=False)
     photo_url = db.Column(db.String, nullable=False)
     title = db.Column(db.String)
 
-    sketchbook = db.relationship("SketchBook")
+    folder = db.relationship("Folder")
 
     def to_dict(self):
         return {
-            'sketchbook_id': self.sketchbook_id,
+            'folder_id': self.folder_id,
             'photo_url': self.photo_url,
             'title': self.title
         }

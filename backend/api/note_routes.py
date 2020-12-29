@@ -4,8 +4,8 @@ from backend.models import db, Board
 from ..aws import upload_file_to_s3, change_name
 note_routes = Blueprint('note_routes', __name__)
 
-@note_routes.route("/<int:sketchbookId>", methods=['POST'])
-def upload(sketchbookId):
+@note_routes.route("/<int:folderId>", methods=['POST'])
+def upload(folderId):
     f = request.files['file']
     f.filename = change_name(f.filename)
     photo_url = upload_file_to_s3(f, 'sophie-boards-bucket')
@@ -13,7 +13,7 @@ def upload(sketchbookId):
     if f:
         try:
             board = Board(
-                sketchbook_id=sketchbookId, photo_url=photo_url, name='test_board')
+                folder_id=folderId, photo_url=photo_url, name='test_board')
             db.session.add(board)
             db.session.commit()
 

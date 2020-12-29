@@ -1,13 +1,10 @@
 import React, { useCallback, useEffect } from "react";
-import TextEditor from './TextEditor'
 import { useShapes, updateAttribute, deleteShape } from "../../../state";
 import { TextareaAutosize } from "@material-ui/core";
 
 const fonts = ['Times New Roman', 'Luminari', 'Courier New', 'Trattatello', 'Comic Sans MS', 'Arial Black']
 const fontStyles = ['normal', 'bold', 'italic']
 const textDecorations = ['line-through', 'underline', 'none']
-const aligns = ['left', 'center', 'right']
-const verticalAligns = ['top', 'middle', 'bottom']
 // opacity (number), shadowColor(string), shadowBlur(number), shadowOffsetX(number), shadowOffsetY(number), shadowOpacity(Number)
 const shapeSelector = (state) => state.shapes[state.selected];
 
@@ -34,7 +31,7 @@ const PropertiesPanel = ({ newText, setNewText }) => {
 
   return (
     <div className="toolbelt">
-      <h2 className='section__title'>toolbelt</h2>
+      <h2 className='title'>toolbelt</h2>
       <div className="properties">
         {selectedShape ? (
           <div className='board__tools'>
@@ -96,9 +93,7 @@ const PropertiesPanel = ({ newText, setNewText }) => {
                   onChange={updateAttr}
                 />
                 </div>
-                <TextareaAutosize className='change-text' name='text' value={selectedShape.text} onChange={updateAttr} />
               </div>
-              // <TextEditor setNewText={setNewText}/>
               :
               <div>
                 <div className='color'>

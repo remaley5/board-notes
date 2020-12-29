@@ -18,7 +18,7 @@ import { Shape } from './items/Shape';
 
 const handleDragOver = (event) => event.preventDefault();
 
-const Canvas = ({sketchbookId, sketchbookTitle, boardTitle, setSaving}) => {
+const Canvas = ({folderId, folderTitle, boardTitle, setSaving}) => {
   const { fetchWithCSRF, currentUserId } = useContext(AuthContext);
   const shapes = useShapes((state) => Object.entries(state.shapes));
   const history = useHistory()
@@ -62,14 +62,15 @@ const Canvas = ({sketchbookId, sketchbookTitle, boardTitle, setSaving}) => {
           height: clientHeight,
           width: clientWidth
         });
-      } else if (type === SHAPE_TYPES.TEXT) {
-        createText({
-          x: coords.x - offsetX,
-          y: coords.y - offsetY,
-          height: 100,
-          width: 100
-        });
       }
+      // else if (type === SHAPE_TYPES.TEXT) {
+      //   createText({
+      //     x: coords.x - offsetX,
+      //     y: coords.y - offsetY,
+      //     height: 100,
+      //     width: 100
+      //   });
+      // }
     }
 
     saveDiagram()
@@ -118,15 +119,15 @@ const Canvas = ({sketchbookId, sketchbookTitle, boardTitle, setSaving}) => {
     const formData = new FormData();
     formData.append("file", blob);
     formData.append("title", boardTitle)
-    // console.log('sketchBookId in Canvas', sketchbookId)
-    // console.log('typof', (typeof sketchbookId))
-    let response = await fetchWithCSRF(`/api-photos/sketchbook/${sketchbookId}`, {
+    // console.log('folderId in Canvas', folderId)
+    // console.log('typof', (typeof folderId))
+    let response = await fetchWithCSRF(`/api-photos/folder/${folderId}`, {
 			method: 'POST',
 			body: formData,
     });
     reset();
     localStorage.clear('__selected_photos__')
-    history.push(`/sketchbook/${sketchbookId}/${sketchbookTitle}`)
+    history.push(`/folder/${folderId}/${folderTitle}`)
     setSaving(false)
     console.log('setting saving false')
 	};
@@ -134,10 +135,10 @@ const Canvas = ({sketchbookId, sketchbookTitle, boardTitle, setSaving}) => {
 
   return (
     <main className="canvas" onDrop={handleDrop} onDragOver={handleDragOver} ref={canvasRef}>
-      <div className="canvas__btns">
-        <button className='canvas__btn' onClick={handleSave}>Save</button>
-        <button className='canvas__btn' onClick={reset}>Reset</button>
-        <button id='save' className='canvas__btn' onClick={downloadURI}>Download</button>
+      <div className="btns">
+        <button className='btn' onClick={handleSave}>Save</button>
+        <button className='btn' onClick={reset}>Reset</button>
+        <button id='save' className='btn' onClick={downloadURI}>Download</button>
 
       </div>
       <Stage

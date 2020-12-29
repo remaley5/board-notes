@@ -1,9 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
-import Sketches from './home/Sketches'
+import Folders from './home/Folders'
 import Nav from './Nav'
 import { TextareaAutosize } from "@material-ui/core";
 import { AuthContext } from '../context'
 import { useHistory, NavLink } from 'react-router-dom';
+import '../styles/home.css'
 
 
 
@@ -39,48 +40,45 @@ const Home = () => {
     };
 
     const handleSave = async () => {
-        const sketchbook = {
+        const folder = {
             title,
             color,
             description
         }
-        let response = await fetchWithCSRF(`/api-sketchbook/new/${currentUserId}`, {
+        let response = await fetchWithCSRF(`/api-folder/new/${currentUserId}`, {
             method: 'POST',
-            body: JSON.stringify(sketchbook),
+            body: JSON.stringify(folder),
         });
         let data = await response.json()
 
-        history.push(`/sketchbook/${data.id}/${data.title}`)
+        history.push(`/folder/${data.id}/${data.title}`)
 
     }
 
     return (
-        <div className='page'>
-            <div className='page-header'>
-                <div className='sketchbook-header'>We're currently doing some deploy debugging! Excuse the mess.</div>
+        <div className='page home'>
+            <div className='header'>
+                <div className='title'>FOLDERS</div>
                 <div className='nav'>
                     <Nav />
-                    <button onClick={handleOpen} className="add-btn">
-                        +
-				</button>
                 </div>
             </div>
-            <Sketches />
-            <dialog className='page-mask' onClose={handleClose} open={open}>
-                <div className='dialog-content'>
-                    <div className='sketchbook-options' >
+            <Folders handleOpen={handleOpen} />
+            <dialog className='mask' onClose={handleClose} open={open}>
+                <div className='dialog'>
+                    <div className='folder-options' >
                         {options.map((opt) => (
-                            <button value={opt} onClick={handleOption} className='sketchbook-option'>{opt}</button>
+                            <button value={opt} onClick={handleOption} className='folder-option'>{opt}</button>
 
                         ))}
                     </div>
                     <div className='gap'>
                         <input className='color-picker' name="Color Picker" onChange={handleColor} value={color} type="color" />
                     </div>
-                    <div className='dialog-preview' style={{ backgroundColor: color }}>
+                    <div className='preview' style={{ backgroundColor: color }}>
                         {option === 'title' ?
                             <TextareaAutosize
-                                className="title-input"
+                                className="title"
                                 aria-label="minimum height"
                                 rowsMin={1}
                                 placeholder='add title'
@@ -100,9 +98,9 @@ const Home = () => {
                                 : null
                         }
                     </div>
-                    <div className='dialog-btns'>
-                        <button className='close-dialog-btn dialog-btn' onClick={handleClose}>cancel</button>
-                        <button className='close-dialog-btn dialog-btn' onClick={handleSave}>save</button>
+                    <div className='light btns'>
+                        <button className='light btn' onClick={handleClose}>cancel</button>
+                        <button className='light btn' onClick={handleSave}>save</button>
                     </div>
                 </div>
             </dialog>

@@ -1,0 +1,106 @@
+
+
+.folder .boards {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.folder .container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.boards .list{
+    padding: 20px;
+    display: flex;
+    width: 90%;
+    margin: auto;
+    gap: 40px;
+    overflow: scroll;
+}
+
+.folder .board {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+
+.folder .boards .add {
+    width: 200px;
+    background-color: rgb(240, 240, 240);
+    border: 1px solid rgb(202, 202, 202);
+}
+
+.folder .add .btn {
+    margin: auto;
+    background-color: white;
+    border:none;
+    font-size: 70px;
+    color: rgb(82, 82, 82);
+}
+
+.folder .add .text.btn {
+    font-size: 30px;
+    width: 150px;
+    height: 150px;
+    border: 1px solid rgb(172, 172, 172);
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
+.folder .add .btn:hover {
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+}
+
+.folder .board .img {
+    height: 100%;
+    border: 1px solid rgb(215, 215, 215);
+}
+
+.folder .board .title {
+    position: absolute;
+    text-align: center;
+    text-transform: lowercase;
+    background-color: rgba(255, 255, 255, 0.685);
+    color: rgb(92, 91, 91);
+    width: 100%;
+    padding: 5px;
+}
+
+.folder .current {
+    width: 90%;
+    margin: auto;
+    max-width: 800px;
+}
+
+.folder .current .img {
+    width: 100%;
+    margin: auto;
+}
+
+.folder .current .title {
+    font-size: 40px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgb(96, 96, 96);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(189, 189, 189);
+}
+
+/* Dialog */
+
+.folder .dialog {
+    height: fit-content;
+    padding: 60px 40px;
+  }

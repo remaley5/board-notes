@@ -21,7 +21,7 @@ const AddPhotos = ({ boardPhotos, setBoardPhotos }) => {
         const photos = getPhotos();
         setSelected(boardPhotos);
         // console.log('setting all photos ', photos)
-        if (photos){
+        if (photos) {
             setAllPhotos(photos);
         }
         setOpenDialog(true);
@@ -33,22 +33,25 @@ const AddPhotos = ({ boardPhotos, setBoardPhotos }) => {
 
     return (
         <>
-            <form className='content__add'>
-                <button className='add-btn' onClick={handleOpen}>
-                    +
+            <form className='add'>
+                <button className='btn' onClick={handleOpen}>
+                    SELECT <br /> IMAGES
             </button>
             </form>
-            <dialog className='page-mask' open={openDialog}>
-                <div className='dialog-content'>
-                    <div className='images-dialog__header'>Select images for this board</div>
-                    <div className='added__images'>
-                        {Object.values(selected).map((photo) => (
-                            <button value={photo.id} className='photo__con'>
-                                <img className='folder-photo' src={photo.photo_url} crossOrigin='Anonymous' alt='board photo' />
-                            </button>
-                        ))}
-                    </div>
-                    <div className='photos__con select'>
+            <dialog className='mask' open={openDialog}>
+                <div className='dialog'>
+                    <div className='header'>Selected images for this board:</div>
+                    <aside className='selected content'>
+                        <div className='imgs'>
+                            {Object.values(selected).map((photo) => (
+                                <button value={photo.id} className='item'>
+                                    <img className='img' src={photo.photo_url} crossOrigin='Anonymous' alt='board photo' />
+                                </button>
+                            ))}
+                        </div>
+                    </aside>
+                    <div className='header'>Your library:</div>
+                    <div className='select container'>
                         <Upload setLoading={setLoading} allPhotos={allPhotos} setAllPhotos={setAllPhotos} />
                         {
                             allPhotos.map((photo) => (
@@ -56,15 +59,15 @@ const AddPhotos = ({ boardPhotos, setBoardPhotos }) => {
                             ))
                         }
                         {loading ?
-                            <div className='photo_con'>
+                            <div className='image'>
                                 <Loading classes={'cube-photo'} />
                             </div>
                             : null
                         }
                     </div>
-                    <div className='dialog-btns'>
-                        <button className='close-dialog-btn dialog-btn' onClick={handleClose}>cancel</button>
-                        <button className='close-dialog-btn dialog-btn' onClick={handleSave}>save</button>
+                    <div className='light btns'>
+                        <button className='light btn' onClick={handleClose}>cancel</button>
+                        <button className='light btn' onClick={handleSave}>save</button>
                     </div>
                 </div>
             </dialog>

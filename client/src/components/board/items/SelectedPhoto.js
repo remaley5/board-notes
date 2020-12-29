@@ -20,9 +20,14 @@ const SelectedPhoto = ({ photo, setSelected, selected }) => {
     }
 
     return (
-        <button className='photo__con' onClick={handleClick}>
-            <div className={Object.values(selected).includes(photo) ? 'folder-photo star' : 'folder-photo hidden star' }>&#9733;</div>
-            <img className={Object.values(selected).includes(photo) ? 'photo-selected folder-photo' : 'folder-photo' } src={photo.photo_url} crossOrigin='Anonymous' alt='board photo' />
+        <button className='item' onClick={handleClick}>
+            {Object.values(selected).includes(photo) ?
+            <>
+            <div className='star'>&#9733;</div>
+            <img className='faded image' src={photo.photo_url} crossOrigin='Anonymous' alt='board photo' />
+                </> :
+            <img className= 'image' src={photo.photo_url} crossOrigin='Anonymous' alt='board photo' />
+        }
         </button>
     )
 }

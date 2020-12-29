@@ -25,8 +25,8 @@ def upload(userId):
     else:
         print('something went wrong-----------------')
 
-@photo_routes.route("/sketchbook/<int:sketchBookId>", methods=['POST'])
-def uploadBoard(sketchBookId):
+@photo_routes.route("/folder/<int:folderId>", methods=['POST'])
+def uploadBoard(folderId):
     f = request.files['file']
     title = request.form['title']
     print('TITLE-----------------', title)
@@ -35,7 +35,7 @@ def uploadBoard(sketchBookId):
     if f:
         try:
             board = Board(
-                sketchbook_id=sketchBookId, title=title, photo_url=photo_url)
+                folder_id=folderId, title=title, photo_url=photo_url)
             db.session.add(board)
             db.session.commit()
 

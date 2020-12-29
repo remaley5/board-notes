@@ -1,31 +1,24 @@
-.sketches__con {
+.container {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     width: 80%;
-    margin: auto;
+    margin-top: 70px;
+    margin-left: 50px;
 }
 
-.sketch__con {
+.container .folder,
+.container .add {
     height: 200px;
     width: 200px;
-    border: 1px solid gray;
+    border: 1px solid rgb(168, 168, 168);
     display: flex;
     align-items: center;
     text-decoration: none;
     position: relative;
 }
 
-/* .sketch-link {
-    color: gray;
-    text-decoration: none;
-}
-
-.sketch-link:hover {
-    color: black;
-} */
-
-.sketch__title {
+.home .folder .title {
     font-family: 'Poppins', sans-serif;
     width: 100%;
     text-align: center;
@@ -38,7 +31,11 @@
     position: absolute;
 }
 
-.sketch__description {
+.home .folder .title:hover {
+    display: none;
+}
+
+.home .folder .description {
     position: absolute;
     opacity: 0;
     color: rgb(84, 83, 83);
@@ -56,22 +53,22 @@
 }
 
 
-.sketch__description:hover {
+.folder .description:hover {
     opacity: 100;
     z-index: 1000;
 }
 
 
-.sketch__description:hover + .hide {
+.folder .description:hover + .hide {
     display: block;
 }
 
-.sketchbook-options {
+.folder-options {
     display: flex;
     gap: 20px;
 }
 
-.sketchbook-option {
+.folder-option {
     background: none;
     text-transform: lowercase;
     font-family: Arial, Helvetica, sans-serif;
@@ -81,7 +78,7 @@
     letter-spacing: 2px;
 }
 
-.sketchbook-option:hover {
+.folder-option:hover {
     color: rgb(82, 82, 82);
     text-decoration: none;
 }
@@ -90,7 +87,8 @@
     padding: 40px;
 }
 
-.dialog-preview {
+.home .dialog .preview {
+    min-height: 200px;
     height: 200px;
     width: 200px;
     border: 1px solid gray;
@@ -99,7 +97,7 @@
     justify-content: center;
 }
 
-.title-input {
+.home .dialog .title {
     text-align: center;
     padding: 15px;
     font-size: 20px;
@@ -123,25 +121,4 @@
     max-width: 198px;
     min-width: 198px;
     min-height: 50px;
-}
-
-.dialog-btns {
-    display: flex;
-    margin-top: 60px;
-}
-
-.dialog-btn {
-    background: none;
-    border: 1px solid rgb(196, 196, 196);
-    padding: 10px 20px;
-    font-size: 15px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: gray;
-}
-
-.dialog-btn:hover {
-    background-color: gray;
-    color: white;
-    border: none;
 }

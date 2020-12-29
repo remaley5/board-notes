@@ -7,11 +7,19 @@
     z-index: 100;
 }
 
-.page-header {
+.header {
   display: flex;
   justify-content: space-between;
   background:none;
   z-index: 500;
+}
+
+.header .title {
+  font-size: 60px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  padding-left: 50px;
 }
 
 .page {
@@ -36,7 +44,7 @@
     color: black;
 }
 
-.page-mask {
+.page .mask {
   position: fixed;
   left: 0;
   right: 0;
@@ -46,12 +54,10 @@
   z-index: 1000;
   width: 100%;
   height: 100%;
-
 }
 
-.dialog-content {
+.dialog {
     margin: auto;
-    margin-top: 5%;
     box-shadow: 0px 0px 6px lightgrey;
     padding: 20px;
     display: flex;
@@ -60,19 +66,83 @@
     max-width: 900px;
     background-color: white;
     overflow: scroll;
-    height: 80%;
-    padding: 50px;
+    height: 70%;
+    margin-top: 10%;
 }
 
-.sketchbook.dialog-content {
-  height: fit-content;
+.dialog .header {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 30px;
+  letter-spacing: 4px;
+  padding: 5px;
+  border: 1px solid rgb(225, 225, 225);
+  width: 100%;
 }
+
+.dialog .exit {
+  width: fit-content;
+  border: 1px solid gray;
+  background-color: white;
+  color:gray;
+  font-size: 20px;
+  padding: 2px 9px;
+  float: right;
+}
+
+.dialog .exit:hover {
+  color: white;
+  background-color: rgb(73, 73, 73);
+}
+
+.btn.big {
+  font-size: 70px;
+}
+
+.add .btn {
+  border: 1px solid rgb(206, 206, 206);
+  background-color: white;
+}
+
+.home .add .btn {
+  padding: 10px 30px;
+}
+
+.add .btn:hover {
+  background-color: rgb(75, 75, 75);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.light.btns {
+  display: flex;
+  margin-top: 60px;
+}
+
+.light.btn {
+  background: none;
+  border: 1px solid rgb(196, 196, 196);
+  padding: 10px 20px;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: gray;
+}
+
+.light.btn:hover {
+  background-color: gray;
+  color: white;
+  border: none;
+}
+
 .home-link {
     font-size: 50px;
     font-weight: bold;
 }
 
-.book-link {
+.folder-link {
   font-size: 20px;
   font-weight: bold;
   color: gray;
@@ -82,7 +152,7 @@
     font-size: 25px;
 }
 
-.section__title {
+.toolbelt .title {
   color: gray;
   font-size: 18px;
   font-weight: 200;
@@ -190,14 +260,14 @@
     text-transform: lowercase;
   }
 
-  .canvas__btns {
+  /* .canvas .btns {
     display: flex;
     position: absolute;
     top: 0;
     right: 0;
-  }
+  } */
 
-  .canvas__btn {
+  /* .canvas .btn {
     margin: 4px;
     height: 30px;
     text-transform: uppercase;
@@ -208,10 +278,10 @@
     border: 1px solid gray;
   }
 
-  .canvas__btn:hover {
+  .canvas .btn:hover {
     background: rgb(87, 87, 87);
     color: white;
-  }
+  } */
 
   .board__tools {
     width: 90%;
@@ -282,6 +352,22 @@
   position: relative;
   width: fit-content;
   display: inline-block;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  margin: -10px;
 }
 
 .sel {
@@ -399,14 +485,4 @@ input[type=range]:focus::-ms-fill-lower {
 }
 input[type=range]:focus::-ms-fill-upper {
   background: #FFFFFF;
-}
-
-.change-text {
-  font-size: 15px;
-  padding: 20px;
-  border: 1px solid rgb(207, 212, 215);
-  min-height: 55px;
-  max-width: 245px;
-  min-width: 245px;
-
 }

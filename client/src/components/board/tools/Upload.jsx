@@ -38,10 +38,10 @@ function Upload({ setLoading, allPhotos, setAllPhotos }) {
 	};
 
 	return (
-		<div className='upload-con'>
-			<form className='content__add'>
-				<label htmlFor="file-upload" className="add-btn">
-					+
+		<div className='upload'>
+			<form className='add'>
+				<label htmlFor="file-upload" className="btn">
+					ADD <br/> NEW
 				</label>
 				<input
 					id='file-upload'
