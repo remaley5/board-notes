@@ -4,11 +4,10 @@ import React, { useState, useContext, useEffect} from 'react';
 import {NavLink} from 'react-router-dom'
 import Canvas from './board/Canvas'
 import Palette from './board/Palette';
-import PropertiesPanel from './board/tools/PropertiesPanel'
 import { AuthContext } from '../context'
 import {setPhotos} from '../state'
 import '../styles/board.css'
-const categories = ['images', 'text', 'shapes']
+const categories = ['images', 'text', 'shapes', 'toolbelt']
 
 function Board(props) {
     const { currentUserId } = useContext(AuthContext);
@@ -47,12 +46,12 @@ function Board(props) {
                 <div className='title'>{boardTitle}</div>
                 <div className='nav'>
                 <Nav/>
-                <NavLink to={`/folder/${folderId}/${folderTitle}`}><button className='nav-link book-link'>{folderTitle}</button></NavLink>
+                <NavLink to={`/folder/${folderId}/${folderTitle}`}><button className='nav-link book-link'>&#8592;  {folderTitle}</button></NavLink>
             </div>
             </div>
             <div className=''>
                 <div className='top' draggable='false'>
-                    <div className='options'>
+                    <div className='pallet'>
                         {categories.map((option, idx) => (
                             <button className='option' key={idx} onClick={handleClick} value={option}>{option}</button>
                         ))}
@@ -63,7 +62,6 @@ function Board(props) {
                 </div>
                 <div className='body'>
                     <Canvas folderId={folderId} folderTitle={folderTitle} boardTitle={boardTitle} setSaving={setSaving} />
-                    <PropertiesPanel newText={newText} setNewText={setNewText} />
                 </div>
             </div>
 

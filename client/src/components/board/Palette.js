@@ -1,14 +1,12 @@
-import React, { useContext, useState, useEffect, useCallback} from "react";
+import React, { useContext, useState, useEffect, useCallback } from "react";
 import { AuthContext } from '../../context'
-import Upload from '../board/tools/Upload'
-import {createNewText, createText, getSelectedPhotos, useShapes, updateAttribute, deleteShape } from '../../state';
+import { createText, getSelectedPhotos, useShapes, updateAttribute, deleteShape } from '../../state';
 import AddPhotos from "./items/AddPhotos";
+import Toolbelt from "./tools/Toolbelt"
 import { DRAG_DATA_KEY, SHAPE_TYPES } from "../../constants";
-import { Photo } from "./items/Photo";
-import { TextareaAutosize } from "@material-ui/core";
 const shapeSelector = (state) => state.shapes[state.selected];
 
-const Palette = ({ type, setNewText, newText }) => {
+const Palette = ({ type }) => {
   const selectedShape = useShapes(shapeSelector);
 
   const { currentUserId } = useContext(AuthContext);
@@ -68,7 +66,7 @@ const Palette = ({ type, setNewText, newText }) => {
 
   useEffect(() => {
     const selectedPhotos = getSelectedPhotos()
-    if(selectedPhotos) {
+    if (selectedPhotos) {
       setBoardPhotos(selectedPhotos)
     }
     // console.log('got selected photos ', selectedPhotos)
@@ -79,7 +77,7 @@ const Palette = ({ type, setNewText, newText }) => {
       { (type === 'images') ?
         <aside className='content'>
           <div className='imgs'>
-            <AddPhotos boardPhotos={boardPhotos} setBoardPhotos={setBoardPhotos}/>
+            <AddPhotos boardPhotos={boardPhotos} setBoardPhotos={setBoardPhotos} />
             {Object.values(boardPhotos).map((photo, idx) => (
               <div className='item' key={photo.photo_url}>
                 <img
@@ -115,14 +113,19 @@ const Palette = ({ type, setNewText, newText }) => {
             <aside className='content text'>
               <div className='imgs'>
                 <div className='add'>
-                  <button onClick={handleNewText} data-shape={SHAPE_TYPES.TEXT} className='btn'>NEW <br/> TEXT </button>
+                  <button onClick={handleNewText} data-shape={SHAPE_TYPES.TEXT} className='btn'>NEW <br /> TEXT </button>
                 </div>
-                { selectedShape ?
+                {selectedShape ?
                   <textarea className='change' name='text' value={selectedShape.text} placeholder='type text here' onChange={updateAttr} />
-                  : null }
+                  : null}
               </div>
             </aside>
-            : null}
+            : type === 'toolbelt' ?
+              <>
+                <Toolbelt />
+              </>
+              : null
+      }
     </>
   );
 }

@@ -1,16 +1,13 @@
 import React, { useCallback, useEffect } from "react";
 import { useShapes, updateAttribute, deleteShape } from "../../../state";
-import { TextareaAutosize } from "@material-ui/core";
 
 const fonts = ['Times New Roman', 'Luminari', 'Courier New', 'Trattatello', 'Comic Sans MS', 'Arial Black']
 const fontStyles = ['normal', 'bold', 'italic']
 const textDecorations = ['line-through', 'underline', 'none']
-// opacity (number), shadowColor(string), shadowBlur(number), shadowOffsetX(number), shadowOffsetY(number), shadowOpacity(Number)
 const shapeSelector = (state) => state.shapes[state.selected];
 
-const PropertiesPanel = ({ newText, setNewText }) => {
+const Toolbelt = () => {
   const selectedShape = useShapes(shapeSelector);
-  // console.log('newText', newText)
 
   const updateAttr = useCallback((event) => {
     let attr = event.target.name;
@@ -18,56 +15,48 @@ const PropertiesPanel = ({ newText, setNewText }) => {
     if (event.target.name == 'strokeWidth') {
       value = parseInt(event.target.value, 10)
     }
-    // console.log('ATTRIBUTE', attr, event.target.value)
     updateAttribute(attr, value);
-
   }, []);
 
   const handleMove = e => {
-    // console.log('moving....')
     selectedShape.moveToTop()
-    // console.log('moved...')
   }
 
   return (
     <div className="toolbelt">
-      <h2 className='title'>toolbelt</h2>
       <div className="properties">
         {selectedShape ? (
-          <div className='board__tools'>
-            <div className="key type">
-              <span className="value">{selectedShape.type}</span>
-            </div>
-            <button className='canvas__btn delete' onClick={deleteShape}>delete</button>
+          <div className='tools'>
+            <button className='light btn delete' onClick={deleteShape}>X</button>
             {selectedShape.type === 'text' ?
-              <div className='text-tools'>
-                <div className='font-tools'>
-                <div className='sel-prefs'>
-                  <button className='drpdwn-def font' style={{ fontFamily: `${selectedShape.font}` }}>{selectedShape.fontFamily}</button>
-                  <div className='sel'>
+              <div className='text'>
+                <div className='font'>
+                <div className='options'>
+                  <button className='selected font' style={{ fontFamily: `${selectedShape.font}` }}>{selectedShape.fontFamily}</button>
+                  <div className='select'>
                     {
                       fonts.map((font) => (
-                        <button className='drpdwn-opt font' id='text' style={{ fontFamily: `${font}` }} name='fontFamily' onClick={updateAttr} value={font}>{font}</button>
+                        <button className='option font' id='text' style={{ fontFamily: `${font}` }} name='fontFamily' onClick={updateAttr} value={font}>{font}</button>
                       ))
                     }
                   </div>
                 </div>
-                <div className='sel-prefs'>
-                  <button style={{ fontStyle: `${selectedShape.fontStyle}` }} className='drpdwn-def style'>Aa</button>
-                  <div className='sel'>
+                <div className='options'>
+                  <button style={{ fontStyle: `${selectedShape.fontStyle}` }} className='selected style'>Aa</button>
+                  <div className='select'>
                     {
                       fontStyles.map((fontStyle) => (
-                        <button className='drpdwn-opt style' id='text' style={{ fontStyle: `${fontStyle}` }} name='fontStyle' onClick={updateAttr} value={fontStyle}>Aa</button>
+                        <button className='option style' id='text' style={{ fontStyle: `${fontStyle}` }} name='fontStyle' onClick={updateAttr} value={fontStyle}>Aa</button>
                       ))
                     }
                   </div>
                 </div>
-                <div className='sel-prefs'>
-                  <button style={{ textDecoration: `${selectedShape.textDecoration}` }} className='drpdwn-def style'>Aa</button>
-                  <div className='sel'>
+                <div className='options'>
+                  <button style={{ textDecoration: `${selectedShape.textDecoration}` }} className='selected style'>Aa</button>
+                  <div className='select'>
                     {
                         textDecorations.map((textDecoration) => (
-                        <button className='drpdwn-opt style' id='text' style={{ textDecoration: `${textDecoration}` }} name='textDecoration' onClick={updateAttr} value={textDecoration}>Aa</button>
+                        <button className='option style' id='text' style={{ textDecoration: `${textDecoration}` }} name='textDecoration' onClick={updateAttr} value={textDecoration}>Aa</button>
                       ))
                     }
                   </div>
@@ -136,4 +125,4 @@ const PropertiesPanel = ({ newText, setNewText }) => {
 }
 
 
-export default PropertiesPanel;
+export default Toolbelt;
