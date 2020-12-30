@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 
 with app.app_context():
-    db.create()
+    db.drop_all()
     db.create_all()
 
     ian = User(first_name='Ian', last_name='Smith', email='ian@aa.io',

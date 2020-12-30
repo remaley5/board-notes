@@ -47,7 +47,7 @@ class Photo(db.Model):
 
 
 class Sketchbook(db.Model):
-    __tablename__ = 'sketchbook'
+    __tablename__ = 'sketchbooks'
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(
