@@ -2,30 +2,30 @@ import React, { useEffect, useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../context'
 
-const Folders = ({handleOpen}) => {
-    const [folders, setFolders] = useState([]);
+const Sketchbooks = ({handleOpen}) => {
+    const [sketchbooks, setSketchbooks] = useState([]);
     const { currentUserId } = useContext(AuthContext);
 
     useEffect(() => {
         (async () => {
-            const response = await fetch(`/api-folder/${currentUserId}`)
+            const response = await fetch(`/api-sketchbook/${currentUserId}`)
             const data = await response.json()
-            setFolders(data.folders)
+            setSketchbooks(data.sketchbooks)
         })()
     }, [currentUserId]);
 
     return (
         <>
             <div className='container'>
-                {folders.length >=1 ?
+                {sketchbooks.length >=1 ?
                 <>
                 <div className='add' style={{backgroundColor: ' rgb(240, 240, 240)'}}>
                     <button onClick={handleOpen} className='btn big'>+</button>
                 </div>
-                {folders.map((folder) => (
-                    <div className='folder' style={{ backgroundColor: folder.color }}>
-                        <NavLink to={`/folder/${folder.id}/${folder.title}`} className='description'>{folder.description}</NavLink>
-                        <div className='title'>{folder.title}</div>
+                {sketchbooks.map((sketchbook) => (
+                    <div className='sketchbook' style={{ backgroundColor: sketchbook.color }}>
+                        <NavLink to={`/sketchbook/${sketchbook.id}/${sketchbook.title}`} className='description'>{sketchbook.description}</NavLink>
+                        <div className='title'>{sketchbook.title}</div>
                     </div>
                 ))}
                 </> :
@@ -38,4 +38,4 @@ const Folders = ({handleOpen}) => {
     )
 }
 
-export default Folders;
+export default Sketchbooks;

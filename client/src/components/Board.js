@@ -21,9 +21,9 @@ function Board(props) {
     const history = useHistory()
     const { setCurrentUserId, currentUserId, fetchWithCSRF } = useContext(AuthContext);
 
-    const folderId = parseInt(props.match.params.id, 10);
-    const folderTitle = props.match.params.folderTitle
-    // console.log('folderId', folderId)
+    const sketchbookId = parseInt(props.match.params.id, 10);
+    const sketchbookTitle = props.match.params.sketchbookTitle
+    // console.log('sketchbookId', sketchbookId)
     const boardTitle = props.match.params.boardTitle;
 
     const handleClick = e => {
@@ -46,8 +46,8 @@ function Board(props) {
         if (window.confirm("If you leave now your board will not be saved!")) {
             reset();
             localStorage.clear();
-            if (e.target.value === 'folder') {
-                history.push(`/folder/${folderId}/${folderTitle}`)
+            if (e.target.value === 'sketchbook') {
+                history.push(`/sketchbook/${sketchbookId}/${sketchbookTitle}`)
             } else if (e.target.value === 'logout') {
                 logoutUser()
             } else {
@@ -79,7 +79,7 @@ function Board(props) {
                 <div className='nav'>
                     <button className='nav-link home-link' value='home' onClick={redirectNav}>home</button>
                     <button onClick={redirectNav} className='nav-link logout-link'>Logout</button>
-                    <button className='nav-link book-link' onClick={redirectNav} value='folder'>&#8592;  {folderTitle}</button>
+                    <button className='nav-link book-link' onClick={redirectNav} value='sketchbook'>&#8592;  {sketchbookTitle}</button>
                 </div>
             </div>
             <div className=''>
@@ -94,7 +94,7 @@ function Board(props) {
                     </div>
                 </div>
                 <div className='body'>
-                    <Canvas folderId={folderId} folderTitle={folderTitle} boardTitle={boardTitle} setSaving={setSaving} />
+                    <Canvas sketchbookId={sketchbookId} sketchbookTitle={sketchbookTitle} boardTitle={boardTitle} setSaving={setSaving} />
                 </div>
             </div>
 

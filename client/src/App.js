@@ -5,7 +5,7 @@ import { AuthContext} from './context';
 import { ProtectedRoute, AuthRoute } from './Routes'
 import Landing from './components/Landing'
 import Home from './components/Home'
-import Folder from './components/Folder'
+import Sketchbook from './components/Sketchbook'
 import Signup from './components/auth/Signup'
 import Board from './components/Board'
 
@@ -78,13 +78,13 @@ const App = () => {
                         currentUserId={currentUserId}
                     />
                     <ProtectedRoute
-                        path="/folder/:id/:title"
+                        path="/sketchbook/:id/:title"
                         exact
-                        component={Folder}
+                        component={Sketchbook}
                         currentUserId={currentUserId}
                     />
                     <ProtectedRoute
-                        path="/folder/new-board/:id/:folderTitle/:boardTitle"
+                        path="/sketchbook/new-board/:id/:sketchbookTitle/:boardTitle"
                         exact
                         component={Board}
                         currentUserId={currentUserId}

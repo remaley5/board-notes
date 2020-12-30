@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import Nav from './Nav';
-import '../styles/folder.css'
+import '../styles/sketchbook.css'
 
-const Folder = (props) => {
-    const folderId = parseInt(props.match.params.id, 10);
-    const folderTitle = props.match.params.title
+const Sketchbook = (props) => {
+    const sketchbookId = parseInt(props.match.params.id, 10);
+    const sketchbookTitle = props.match.params.title
     const [boards, setBoards] = useState(null)
     const [open, setOpen] = useState(false)
     const [title, setTitle] = useState('board title')
@@ -15,7 +15,7 @@ const Folder = (props) => {
     useEffect(() => {
         localStorage.clear();
         (async () => {
-            const response = await fetch(`/api-folder/boards/${folderId}`)
+            const response = await fetch(`/api-sketchbook/boards/${sketchbookId}`)
             const data = await response.json()
             if (data.boards.length >= 1) {
                 const boardsData = data.boards
@@ -34,7 +34,7 @@ const Folder = (props) => {
             }
             setLoading(false)
         })()
-    }, [folderId])
+    }, [sketchbookId])
 
     const handleChange = e => {
         setTitle(e.target.value)
@@ -54,9 +54,9 @@ const Folder = (props) => {
     };
 
     return (
-        <div className='page folder'>
+        <div className='page sketchbook'>
             <div className='header'>
-                <div className='title'>{folderTitle}</div>
+                <div className='title'>{sketchbookTitle}</div>
                 <div className='nav'>
                     <Nav />
                 </div>
@@ -94,7 +94,7 @@ const Folder = (props) => {
                     <input className='header' onChange={handleChange} value={title} />
                     <div className='light btns'>
                         <button className='light btn' onClick={handleClose}>cancel</button>
-                        <NavLink to={`/folder/new-board/${folderId}/${folderTitle}/${title}`} className='light btn'>create</NavLink>
+                        <NavLink to={`/sketchbook/new-board/${sketchbookId}/${sketchbookTitle}/${title}`} className='light btn'>create</NavLink>
                     </div>
                 </div>
             </dialog>
@@ -102,4 +102,4 @@ const Folder = (props) => {
     )
 }
 
-export default Folder;
+export default Sketchbook;

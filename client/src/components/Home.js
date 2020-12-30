@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import Folders from './home/Folders'
+import Sketchbooks from './home/Sketchbooks'
 import Nav from './Nav'
 import { TextareaAutosize } from "@material-ui/core";
 import { AuthContext } from '../context'
@@ -40,18 +40,18 @@ const Home = () => {
     };
 
     const handleSave = async () => {
-        const folder = {
+        const sketchbook = {
             title,
             color,
             description
         }
-        let response = await fetchWithCSRF(`/api-folder/new/${currentUserId}`, {
+        let response = await fetchWithCSRF(`/api-sketchbook/new/${currentUserId}`, {
             method: 'POST',
-            body: JSON.stringify(folder),
+            body: JSON.stringify(sketchbook),
         });
         let data = await response.json()
 
-        history.push(`/folder/${data.id}/${data.title}`)
+        history.push(`/sketchbook/${data.id}/${data.title}`)
     }
 
     useEffect(() => {
@@ -66,12 +66,12 @@ const Home = () => {
                     <Nav />
                 </div>
             </div>
-            <Folders handleOpen={handleOpen} />
+            <Sketchbooks handleOpen={handleOpen} />
             <dialog className='mask' onClose={handleClose} open={open}>
                 <div className='dialog'>
-                    <div className='folder-options' >
+                    <div className='sketchbook-options' >
                         {options.map((opt) => (
-                            <button value={opt} onClick={handleOption} className='folder-option'>{opt}</button>
+                            <button value={opt} onClick={handleOption} className='sketchbook-option'>{opt}</button>
 
                         ))}
                     </div>

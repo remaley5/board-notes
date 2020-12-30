@@ -1,12 +1,12 @@
 
 
-.folder .boards {
+.sketchbook .boards {
     display: flex;
     align-items: center;
     gap: 30px;
 }
 
-.folder .container {
+.sketchbook .container {
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -21,7 +21,7 @@
     overflow: scroll;
 }
 
-.folder .board {
+.sketchbook .board {
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -33,7 +33,7 @@
     width: fit-content;
 }
 
-.folder .boards .add {
+.sketchbook .boards .add {
     width: 200px;
     height: 200px;
     display: flex;
@@ -43,7 +43,7 @@
     border: 1px solid rgb(202, 202, 202);
 }
 
-.folder .add .btn {
+.sketchbook .add .btn {
     margin: auto;
     background-color: white;
     border:none;
@@ -51,7 +51,7 @@
     color: rgb(82, 82, 82);
 }
 
-.folder .add .text.btn {
+.sketchbook .add .text.btn {
     font-size: 30px;
     width: 150px;
     height: 150px;
@@ -60,18 +60,18 @@
     font-weight: 200;
 }
 
-.folder .add .btn:hover {
+.sketchbook .add .btn:hover {
     background-color: gray;
     color: white;
     font-weight: bold;
 }
 
-.folder .board .img {
+.sketchbook .board .img {
     height: 100%;
     border: 1px solid rgb(215, 215, 215);
 }
 
-.folder .board .title {
+.sketchbook .board .title {
     position: absolute;
     text-align: center;
     text-transform: lowercase;
@@ -81,18 +81,18 @@
     padding: 5px;
 }
 
-.folder .current {
+.sketchbook .current {
     width: 90%;
     margin: auto;
     max-width: 800px;
 }
 
-.folder .current .img {
+.sketchbook .current .img {
     width: 100%;
     margin: auto;
 }
 
-.folder .current .title {
+.sketchbook .current .title {
     font-size: 40px;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -104,7 +104,7 @@
 
 /* Dialog */
 
-.folder .dialog {
+.sketchbook .dialog {
     height: fit-content;
     padding: 60px 40px;
   }

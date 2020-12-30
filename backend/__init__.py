@@ -16,7 +16,7 @@ from backend.models import (
     User,
 )
 
-from backend.api import note_routes, folder_routes, tool_routes, user_routes, photo_routes
+from backend.api import note_routes, sketchbook_routes, tool_routes, user_routes, photo_routes
 
 from backend.config import Config
 
@@ -25,7 +25,7 @@ app = Flask(__name__)
 
 app.config.from_object(Config)
 app.register_blueprint(note_routes, url_prefix='/api-notes')
-app.register_blueprint(folder_routes, url_prefix='/api-folder')
+app.register_blueprint(sketchbook_routes, url_prefix='/api-sketchbook')
 app.register_blueprint(tool_routes, url_prefix='/api-tools')
 app.register_blueprint(user_routes, url_prefix='/api-user')
 app.register_blueprint(photo_routes, url_prefix='/api-photos')
@@ -33,7 +33,7 @@ app.register_blueprint(photo_routes, url_prefix='/api-photos')
 db.init_app(app)
 login_manager = LoginManager(app)
 
-# included so alembic migrations folder within models folder
+# included so alembic migrations sketchbook within models sketchbook
 MIGRATION_DIR = os.path.join('backend', 'models', 'migrations')
 Migrate(app, db, directory=MIGRATION_DIR)
 

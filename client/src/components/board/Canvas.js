@@ -17,7 +17,7 @@ import { Shape } from './items/Shape';
 
 const handleDragOver = (event) => event.preventDefault();
 
-const Canvas = ({folderId, folderTitle, boardTitle, setSaving}) => {
+const Canvas = ({sketchbookId, sketchbookTitle, boardTitle, setSaving}) => {
   const { fetchWithCSRF, currentUserId } = useContext(AuthContext);
   const shapes = useShapes((state) => Object.entries(state.shapes));
   const history = useHistory()
@@ -108,15 +108,15 @@ const Canvas = ({folderId, folderTitle, boardTitle, setSaving}) => {
     const formData = new FormData();
     formData.append("file", blob);
     formData.append("title", boardTitle)
-    // console.log('folderId in Canvas', folderId)
-    // console.log('typof', (typeof folderId))
-    let response = await fetchWithCSRF(`/api-photos/folder/${folderId}`, {
+    // console.log('sketchbookId in Canvas', sketchbookId)
+    // console.log('typof', (typeof sketchbookId))
+    let response = await fetchWithCSRF(`/api-photos/sketchbook/${sketchbookId}`, {
 			method: 'POST',
 			body: formData,
     });
     reset();
     localStorage.clear('__selected_photos__')
-    history.push(`/folder/${folderId}/${folderTitle}`)
+    history.push(`/sketchbook/${sketchbookId}/${sketchbookTitle}`)
     setSaving(false)
     console.log('setting saving false')
 	};

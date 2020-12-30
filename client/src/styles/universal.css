@@ -106,7 +106,7 @@
 }
 
 .home .add .btn,
-.folder .add .btn {
+.sketchbook .add .btn {
   padding: 10px 30px;
 }
 
@@ -152,7 +152,7 @@
     font-weight: bold;
 }
 
-.folder-link {
+.sketchbook-link {
   font-size: 20px;
   font-weight: bold;
   color: gray;
